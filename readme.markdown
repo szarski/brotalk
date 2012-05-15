@@ -1,4 +1,6 @@
 brotalk
 =======
 
-You're not going to see any tests here, sorry bro!
+Ay bro!
+
+Nothing to see here bro, just a school project.

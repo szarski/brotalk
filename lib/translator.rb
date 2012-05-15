@@ -14,4 +14,7 @@ module Translator
       end
     end
   end
+
+  class Sender
+  end
 end

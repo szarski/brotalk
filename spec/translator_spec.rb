@@ -28,3 +28,14 @@ describe Translator::Receiver do
     it "should not raise on broken json"
   end
 end
+
+describe Translator::Sender do
+  describe "#initialize" do
+    it "should take communicator as argument and store"
+  end
+
+  describe "#greet" do
+    it "should take sender and bros_table as argument and send appropriate json to the sender via communicator"
+    #(JS) {message: "ay bro", bros: bros_table}
+  end
+end

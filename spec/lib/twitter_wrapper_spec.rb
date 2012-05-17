@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__), '../spec_helper')
+
 describe TwitterWrapper do
   describe "#publish_address" do
     it "should post gived address to twitter with the proper hashtag"

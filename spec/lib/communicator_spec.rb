@@ -68,8 +68,4 @@ describe Communicator do
     it "should accept sender and package"
     it "should call #receive on each of the #listeners"
   end
-
-  describe "receiving packages" do
-    it "should call self.receive with sender and package"
-  end
 end

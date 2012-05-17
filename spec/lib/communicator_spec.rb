@@ -29,12 +29,21 @@ describe Communicator do
   end
 
   describe "#register_listener" do
-    it "should take any object as an argument and add it to the #listeners array"
+    let(:listener) {mock}
+    it "should take any object as an argument and add it to the #listeners array" do
+      subject.register_listener(listener)
+      subject.listeners.should include(listener)
+    end
   end
 
   describe "#listeners" do
-    it "should be an array"
-    it "is empty by default"
+    it "should be an array" do
+      subject.listeners.should be_a(Array)
+    end
+
+    it "is empty by default" do
+      subject.listeners.should be_empty
+    end
   end
 
   describe "#transmit" do

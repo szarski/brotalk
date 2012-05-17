@@ -19,4 +19,12 @@ class Communicator
   def register_listener(listener)
     @listeners << listener
   end
+
+  def transmit(address, package)
+    self.class.transmit(self, address, package)
+  end
+
+  def self.transmit(sender, address, package)
+    listeners[address].receive sender, package
+  end
 end

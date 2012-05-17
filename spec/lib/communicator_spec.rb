@@ -4,6 +4,9 @@ describe Communicator do
 
   subject {Communicator.new}
   let(:ip) {mock}
+  let(:package) {mock}
+  let(:receiver_ip) {mock}
+  let(:sender) {mock}
 
   describe ".listeners" do
     it "should be empty by default" do
@@ -47,7 +50,18 @@ describe Communicator do
   end
 
   describe "#transmit" do
-    it "should accept receiver and package and send them away"
+    it "should accept receiver and package and send them away" do
+      described_class.should_receive(:transmit).with(subject, receiver_ip, package)
+      subject.transmit(receiver_ip, package)
+    end
+  end
+
+  describe ".transmit" do
+    it "should invoke #receive on the receiver communicator" do
+      subject.should_receive(:receive).with sender, package
+      described_class.listeners.stub(:[]).with(ip).and_return(subject)
+      described_class.transmit(sender, ip, package)
+    end
   end
 
   describe "#receive" do

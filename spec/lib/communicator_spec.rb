@@ -22,7 +22,10 @@ describe Communicator do
   end
 
   describe "#start_listening" do
-    it "should take port as argument and start listening to incomming connections"
+    it "should take port as argument and start listening to incomming connections" do
+      described_class.should_receive(:register).with(ip, subject)
+      subject.start_listening(ip)
+    end
   end
 
   describe "#register_listener" do

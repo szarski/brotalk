@@ -1,6 +1,23 @@
 require File.join(File.dirname(__FILE__), '../spec_helper')
 
-describe "Communicator" do
+describe Communicator do
+
+  subject {Communicator.new}
+  let(:ip) {mock}
+
+  describe ".listeners" do
+    it "should be empty by default" do
+      described_class.listeners.should == {}
+    end
+  end
+
+  describe ".register" do
+    it "should add the communicator" do
+      described_class.register(ip, subject)
+      described_class.listeners[ip].should == subject
+    end
+  end
+
   describe "#initialize" do
   end
 

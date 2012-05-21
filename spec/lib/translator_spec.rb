@@ -43,12 +43,52 @@ describe Translator::Receiver do
 end
 
 describe Translator::Sender do
+  let(:sender_mock) { double("sender").as_null_object }
+  let(:communicator_mock) { double("communicator").as_null_object }
+
+  subject { Translator::Sender.new(communicator_mock) }
+
   describe "#initialize" do
-    it "should take communicator as argument and store"
+    it "sets @communicator" do
+      subject.communicator.should eq(communicator_mock)
+    end
   end
 
   describe "#greet" do
-    it "should take sender and bros_table as argument and send appropriate json to the sender via communicator"
-    #(JS) {message: "ay bro", bros: bros_table}
+    let(:bros_table_mock) { double("bros_table").as_null_object }
+    let(:built_json) { "{\"bros_table\":\"[1,2,3]\"}" }
+
+    before(:each) do
+      subject.stub(:build_message).and_return(built_json)
+    end
+
+    it "invokes #build_message with message_type :greeting and bros_table" do
+      subject.should_receive(:build_message).with(:greeting, bros_table_mock)
+      subject.greet(sender_mock, bros_table_mock)
+    end
+
+    it "invokes Communicator#transmit with address and proper json" do
+      communicator_mock.should_receive(:transmit).with(sender_mock, built_json)
+      subject.greet(sender_mock, bros_table_mock)
+    end
+  end
+
+  describe "#send_message" do
+    let(:message) { "hello" }
+    let(:built_json) { "{\"message\":\"hello\"}" }
+
+    before(:each) do
+      subject.stub(:build_message).and_return(built_json)
+    end
+
+    it "invokes #build_message with message_type :regular and message" do
+      subject.should_receive(:build_message).with(:regular, message)
+      subject.send_message(sender_mock, message)
+    end
+
+    it "invokes Communicator#transmit with address and proper json" do
+      communicator_mock.should_receive(:transmit).with(sender_mock, built_json)
+      subject.send_message(sender_mock, message)
+    end
   end
 end

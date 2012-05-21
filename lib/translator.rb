@@ -1,4 +1,5 @@
 require File.join(File.dirname(__FILE__), './translator/message_parser')
+require File.join(File.dirname(__FILE__), './translator/message_builder')
 
 module Translator
   class Receiver
@@ -24,9 +25,26 @@ module Translator
           @client.message parsed_message["message"]
         end
       end
-      #EOF private
+    #EOF private
   end
 
   class Sender
+    include MessageBuilder
+
+    attr_accessor :communicator
+
+    def initialize(communicator)
+      @communicator = communicator
+    end
+
+    def greet(sender, bros_table)
+      greet_json = build_message(:greeting, bros_table)
+      @communicator.transmit(sender, greet_json)
+    end
+
+    def send_message(sender, message)
+      message_json = build_message(:regular, message)
+      @communicator.transmit(sender, message_json)
+    end
   end
 end

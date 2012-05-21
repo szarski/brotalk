@@ -8,13 +8,13 @@ describe "communication" do
   let(:ip1) {mock}
   let(:package) {mock}
 
+  let(:communicator_1) {Communicator.new}
+  let(:communicator_2) {Communicator.new}
+
+  before {communicator_1.start_listening(ip1)}
+
   scenario "two communicators talk to each other" do
-    c1 = Communicator.new
-    c2 = Communicator.new
-
-    c1.should_receive(:receive).with(c2, package)
-
-    c1.start_listening(ip1)
-    c2.transmit(ip1, package)
+    communicator_1.should_receive(:receive).with(communicator_2, package)
+    communicator_2.transmit(ip1, package)
   end
 end

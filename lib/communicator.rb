@@ -27,4 +27,10 @@ class Communicator
   def self.transmit(sender, address, package)
     listeners[address].receive sender, package
   end
+
+  def receive(sender, package)
+    listeners.each do |listener|
+      listener.receive(sender, package)
+    end
+  end
 end

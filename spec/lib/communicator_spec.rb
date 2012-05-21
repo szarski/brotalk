@@ -65,7 +65,21 @@ describe Communicator do
   end
 
   describe "#receive" do
-    it "should accept sender and package"
-    it "should call #receive on each of the #listeners"
+    let(:sender) {mock}
+    let(:package) {mock}
+
+    it "should accept sender and package" do
+      lambda {subject.receive mock, mock}.should_not raise_error
+    end
+
+    context "there are listeners assigned" do
+      let(:listeners) {[mock, mock, mock]}
+      before {subject.stub(:listeners).and_return(listeners)}
+
+      it "should call #receive on each of the #listeners" do
+        listeners.each {|listener| listener.should_receive(:receive).with(sender, package)}
+        subject.receive sender, package
+      end
+    end
   end
 end

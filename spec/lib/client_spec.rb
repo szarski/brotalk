@@ -42,7 +42,13 @@ describe Client do
   end
 
   describe "#start" do
-    it "should call Communicator#start_listening"
+    let(:communicator) {mock}
+    before {subject.stub(:communicator).and_return(communicator)}
+
+    it "should call Communicator#start_listening" do
+      communicator.should_receive(:start_listening)
+      subject.start_listening
+    end
   end
 
   describe "#bro_table" do

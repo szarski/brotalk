@@ -3,7 +3,6 @@ require File.join(File.dirname(__FILE__), '../spec_helper')
 describe Communicator do
 
   subject {Communicator.new}
-  let(:ip) {mock}
   let(:package) {mock}
   let(:receiver_ip) {mock}
   let(:sender) {mock}
@@ -17,8 +16,9 @@ describe Communicator do
 
   describe ".register" do
     it "should add the communicator" do
-      described_class.register(ip, subject)
-      described_class.listeners[ip].should == subject
+      described_class.register(subject)
+      described_class.listeners.values.last.should == subject
+      described_class.listeners.keys.last.should be_a(String)
     end
   end
 
@@ -26,9 +26,9 @@ describe Communicator do
   end
 
   describe "#start_listening" do
-    it "should take port as argument and start listening to incomming connections" do
-      described_class.should_receive(:register).with(ip, subject)
-      subject.start_listening(ip)
+    it "should start listening to incomming connections" do
+      described_class.should_receive(:register).with(subject)
+      subject.start_listening
     end
   end
 
@@ -59,6 +59,7 @@ describe Communicator do
 
   describe ".transmit" do
     it "should invoke #receive on the receiver communicator" do
+      ip = mock
       subject.should_receive(:receive).with sender, package
       described_class.listeners.stub(:[]).with(ip).and_return(subject)
       described_class.transmit(sender, ip, package)

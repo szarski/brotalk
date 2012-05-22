@@ -5,12 +5,13 @@ class Communicator
     @listeners||={}
   end
 
-  def self.register(ip, communicator)
+  def self.register(communicator)
+    ip = "ip_#{(10000000000*rand).round}"
     @listeners[ip] = communicator
   end
 
-  def start_listening(ip)
-    self.class.register ip, self
+  def start_listening
+    self.class.register self
   end
 
   def initialize

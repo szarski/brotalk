@@ -7,4 +7,8 @@ class Client
     @communicator.register_listener translator_receiver
     @translator_sender = Translator::Sender.new(communicator)
   end
+
+  def start_listening
+    communicator.start_listening
+  end
 end

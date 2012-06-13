@@ -39,7 +39,7 @@ describe Client do
     it "invokes TwitterWrapper#scan_addresses and issues translator.greet() with each of them and passes #bro_table"
   end
 
-  describe "#start" do
+  describe "#start_listening" do
     let(:communicator) {mock}
     before {subject.stub(:communicator).and_return(communicator)}
 

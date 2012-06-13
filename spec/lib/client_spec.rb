@@ -50,7 +50,9 @@ describe Client do
   end
 
   describe "#bro_table" do
-    it "should be empty on initialize"
+    it "should be empty on initialize" do
+      Client.new.bros_table.should be_empty
+    end
   end
 
   describe "#update_bros" do

@@ -17,7 +17,8 @@ describe Translator::Receiver do
     context "when receives greetings" do
       it "updates bros table" do
         client_mock.should_receive(:update_bros).with(bros_mock)
-        subject.receive sender_mock, {:message => 'ay bro', :bros => bros_mock}.to_json
+        client_mock.should_receive(:update_bros).with([sender_mock])
+        subject.receive sender_mock, {:message => 'ay bro', :bros_table => bros_mock}.to_json
       end
     end
 

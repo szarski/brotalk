@@ -13,14 +13,15 @@ module Translator
 
     def receive(sender, raw_package)
       package = parse_message(raw_package)
-      route_message(package)
+      route_message(package, sender)
     end
 
     private
-      def route_message(parsed_message)
+      def route_message(parsed_message, sender)
         case parsed_message[:message_type]
         when :greetings
-          @client.update_bros parsed_message["bros"]
+          @client.update_bros [sender]
+          @client.update_bros parsed_message["bros_table"]
         when :regular
           @client.message parsed_message["message"]
         end

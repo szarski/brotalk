@@ -15,6 +15,8 @@ end
 describe "propagation" do
   let(:clients) {(1..10).to_a.collect {Client.new}}
 
+  before {Communicator.clear_listeners}
+
   scenario "none of the bros is given any address, noone knows nobody" do
     clients.map &:start_listening
     clients.reject {|c| c.bros_table.empty?}.should be_empty

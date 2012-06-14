@@ -1,6 +1,11 @@
 class Communicator
   attr_reader :listeners
-  @listeners={}
+
+  def self.clear_listeners
+    @listeners={}
+  end
+  clear_listeners
+
   def self.listeners
     @listeners||={}
   end

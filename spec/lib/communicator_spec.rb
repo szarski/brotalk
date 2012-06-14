@@ -6,6 +6,8 @@ describe Communicator do
   let(:package) {mock}
   let(:receiver_ip) {mock}
   let(:sender) {mock}
+  let(:sender_address) {mock}
+  before {Communicator.stub(:reverse_lookup).with(sender).and_return(sender_address)}
 
   describe ".listeners" do
     it "should be empty by default" do
@@ -51,7 +53,7 @@ describe Communicator do
   end
 
   describe "#transmit" do
-    it "should accept receiver and package and send them away" do
+    it "should accept sender, receiver_address and package, perform sender reverse lookup and send them away" do
       described_class.should_receive(:transmit).with(subject, receiver_ip, package)
       subject.transmit(receiver_ip, package)
     end
@@ -60,7 +62,7 @@ describe Communicator do
   describe ".transmit" do
     it "should invoke #receive on the receiver communicator" do
       ip = mock
-      subject.should_receive(:receive).with sender, package
+      subject.should_receive(:receive).with sender_address, package
       described_class.listeners.stub(:[]).with(ip).and_return(subject)
       described_class.transmit(sender, ip, package)
     end

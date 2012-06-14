@@ -26,8 +26,21 @@ class Communicator
     self.class.transmit(self, address, package)
   end
 
+  def self.reverse_lookup(bro)
+    socket = self.listeners.to_a.select{|a,c| c == bro}.last
+    if socket
+      return socket.first
+    else
+      return nil
+    end
+  end
+
   def self.transmit(sender, address, package)
-    listeners[address].receive sender, package
+    sender_address = reverse_lookup(sender)
+    unless listeners[address]
+      raise "address unregistered #{address.inspect}"
+    end
+    listeners[address].receive sender_address, package
   end
 
   def receive(sender, package)

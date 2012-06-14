@@ -13,10 +13,13 @@ describe "communication" do
 
   before {communicator_1.start_listening;ip1}
   #because he signed up as the last one:
-  let(:ip1) {Communicator.listeners.keys.last}
+  let(:ip1) {Communicator.listeners.keys[Communicator.listeners.keys.count - 2]}
+  let(:ip2) {Communicator.listeners.keys.last}
 
   scenario "two communicators talk to each other" do
-    communicator_1.should_receive(:receive).with(communicator_2, package)
+    communicator_1.start_listening
+    communicator_2.start_listening
+    communicator_1.should_receive(:receive).with(ip2, package)
     communicator_2.transmit(ip1, package)
   end
 end

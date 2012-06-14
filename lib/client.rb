@@ -14,10 +14,15 @@ class Client
   end
 
   def update_bros(bros_table_update)
-    @bros_table = (@bros_table + bros_table_update).uniq
-    @bros_table.each do |bro|
-      translator = Translator::Sender.new(@communicator)
-      translator.greet(bro, @bros_table)
+    new_bros_table = (@bros_table + bros_table_update).uniq
+    new_entries = (new_bros_table - @bros_table)
+    @bros_table = new_bros_table
+    new_entries.each do |bro|
+      greet bro
     end
+  end
+
+  def greet receiver
+    translator_sender.greet receiver, bros_table
   end
 end

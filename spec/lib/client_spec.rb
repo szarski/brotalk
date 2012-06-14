@@ -69,12 +69,13 @@ describe Client do
       let(:bro_table_update) { ["1.2.3.1","1.2.3.2","1.2.3.3"] } 
 
       it "bros table is equal to the incoming records" do
+        subject.stub(:greet)
         subject.update_bros(bro_table_update)
         subject.bros_table.should eq(bro_table_update)
       end
 
       it "greets each bro" do
-        Translator::Sender.should_not_receive(:greet)
+        subject.should_receive(:greet).exactly(3).times
         subject.update_bros(bro_table_update)
       end
     end
@@ -85,8 +86,14 @@ describe Client do
       let(:bro_table_updated) { ["1.1.1.1","2.2.2.2", "3.3.3.3", "4.4.4.4"] }
 
       it "bros table is merged from existing and incoming records" do
+        subject.stub(:greet)
         subject.update_bros(bro_table_update)
         subject.bros_table.should eq(bro_table_updated)
+      end
+
+      it "greets each bro" do
+        subject.should_receive(:greet).exactly(2).times
+        subject.update_bros(bro_table_update)
       end
     end
 
@@ -97,8 +104,14 @@ describe Client do
 
       it "bros table is merged from existing and incoming records without "\
         "doubled records" do
+        subject.stub(:greet)
         subject.update_bros(bro_table_update)
         subject.bros_table.should eq(bro_table_updated)
+      end
+
+      it "greets each bro" do
+        subject.should_receive(:greet).exactly(1).times
+        subject.update_bros(bro_table_update)
       end
     end
   end

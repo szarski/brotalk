@@ -1,0 +1,2 @@
+class Bro
+end

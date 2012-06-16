@@ -68,8 +68,7 @@ describe Translator::Sender do
       subject.stub(:build_message).and_return(built_json)
     end
 
-    it "invokes #build_message with message_type :greeting and bros_table translated to json" do
-      pending "mock with Bro instances and check if they're translated properly"
+    it "invokes #build_message with message_type :greeting and bros_table" do
       subject.should_receive(:build_message).with(:greeting, bros_table_mock)
       subject.greet(sender_mock, bros_table_mock)
     end

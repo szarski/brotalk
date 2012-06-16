@@ -115,4 +115,28 @@ describe Client do
       end
     end
   end
+
+  describe "#supernode?" do
+    it "should be false upon initialization"
+  end
+
+  describe "#elect!" do
+    it "should turn client into a supernode"
+  end
+
+  describe "#ensure_supernodes!" do
+    context "subject is a supernode" do
+      it "should not call #elect!"
+    end
+
+    context "subject is not a supernode" do
+      context "subject has a supernode in his bros_table" do
+        it "should not call #elect!"
+      end
+
+      context "subject doesn't have a supernode in his bros table" do
+        it "should call #elect!"
+      end
+    end
+  end
 end

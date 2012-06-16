@@ -16,6 +16,10 @@ module Translator
       route_message(package, sender)
     end
 
+    def parse_bros(bros)
+      Bro.from_json bros
+    end
+
     private
       def route_message(parsed_message, sender)
         case parsed_message[:message_type]

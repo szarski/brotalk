@@ -59,7 +59,7 @@ describe Client do
     #it "should update the bro table with new records and issue translator.greet with each of them and the #bro_table"
     let(:communicator_mock) { double("communicator").as_null_object} 
 
-    before(:each) do
+    before do
       subject.instance_variable_set("@bros_table", bro_table_mock)
       subject.instance_variable_set("@communicator", communicator_mock)
     end

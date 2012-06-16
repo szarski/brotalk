@@ -14,15 +14,25 @@ describe Translator::Receiver do
   end
 
   describe "#parse_bros" do
-    it "should create Bro instances out of a json string"
+    let(:bros) {mock}
+    let(:bros_json) {mock}
+
+    it "should create Bro instances out of a json string" do
+      Bro.stub(:from_json).with(bros_json).and_return bros
+      subject.parse_bros(bros_json).should == bros
+    end
   end
 
   describe "#receive" do
     context "when receives greetings" do
+      before {subject.stub(:parse_bros).with(bros_mock).and_return(parsed_bros)}
+      before {subject.stub(:parse_bros).with([sender_mock]).and_return(parsed_sender)}
+      let_mocks :parsed_bros, :parsed_sender
+
       it "updates bros table with the result of #parse_bros" do
         pending "should use #parse_bros and pass that instead"
         client_mock.should_receive(:update_bros).with(bros_mock)
-        client_mock.should_receive(:update_bros).with([sender_mock])
+        client_mock.should_receive(:update_bros).with([parsed_sender])
         subject.receive sender_mock, {:message => 'ay bro', :bros_table => bros_mock}.to_json
       end
     end

@@ -139,4 +139,14 @@ describe Client do
       end
     end
   end
+
+  describe "#clear_bro_table" do
+    context "bro table has 3 supernodes and MAX_REGULAR_NODES - 1 regular nodes" do
+      it "should not change the bro table"
+    end
+
+    context "bro table has 3 supernodes and MAX_REGULAR_NODES + 1 regular nodes" do
+      it "should trimm the number of regular nodes to 1"
+    end
+  end
 end

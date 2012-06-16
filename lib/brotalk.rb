@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__), 'client')
 require File.join(File.dirname(__FILE__), 'translator')
 require File.join(File.dirname(__FILE__), 'communicator')
 require File.join(File.dirname(__FILE__), 'twitter_wrapper')
+require File.join(File.dirname(__FILE__), 'bro')
 
 module Brotalk
 

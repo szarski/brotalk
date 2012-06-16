@@ -13,9 +13,14 @@ describe Translator::Receiver do
     end
   end
 
+  describe "#parse_bros" do
+    it "should create Bro instances out of a json string"
+  end
+
   describe "#receive" do
     context "when receives greetings" do
-      it "updates bros table" do
+      it "updates bros table with the result of #parse_bros" do
+        pending "should use #parse_bros and pass that instead"
         client_mock.should_receive(:update_bros).with(bros_mock)
         client_mock.should_receive(:update_bros).with([sender_mock])
         subject.receive sender_mock, {:message => 'ay bro', :bros_table => bros_mock}.to_json
@@ -63,7 +68,8 @@ describe Translator::Sender do
       subject.stub(:build_message).and_return(built_json)
     end
 
-    it "invokes #build_message with message_type :greeting and bros_table" do
+    it "invokes #build_message with message_type :greeting and bros_table translated to json" do
+      pending "mock with Bro instances and check if they're translated properly"
       subject.should_receive(:build_message).with(:greeting, bros_table_mock)
       subject.greet(sender_mock, bros_table_mock)
     end

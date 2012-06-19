@@ -9,4 +9,20 @@ class Bro
   def supernode?
     @supernode
   end
+
+  def eql?(bro)
+    bro.address.eql? self.address
+  end
+
+  def ==(bro)
+    eql? bro
+  end
+
+  def eq?(bro)
+    eql? bro
+  end
+
+  def hash
+    address.hash
+  end
 end

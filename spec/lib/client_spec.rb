@@ -117,11 +117,16 @@ describe Client do
   end
 
   describe "#supernode?" do
-    it "should be false upon initialization"
+    it "should be false upon initialization" do
+      subject.supernode?.should be_false
+    end
   end
 
   describe "#elect!" do
-    it "should turn client into a supernode"
+    it "should turn client into a supernode" do
+      subject.elect!
+      subject.supernode?.should be_true
+    end
   end
 
   describe "#ensure_supernodes!" do

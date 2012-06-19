@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Bro do
   describe "#initialize" do
     let_mocks :address, :supernode
+    subject {Bro.new(address, supernode)}
 
     it "should take address and supernode" do
       bro = Bro.new address, supernode
@@ -21,6 +22,15 @@ describe Bro do
       bro_a1.should_not == bro_b
 
       [bro_a1, bro_a2, bro_b].uniq.should == [bro_a1, bro_b]
+    end
+  end
+
+  describe ".from_json" do
+    let(:bros_json) {[mock, mock, mock]}
+    let(:bros) {[mock, mock, mock]}
+    it "should load from an array" do
+      bros_json.each_with_index {|bro, index| Bro.stub(:new).with(bro).and_return(bros[index])}
+      described_class.from_json(bros_json).should == bros
     end
   end
 end

@@ -10,6 +10,10 @@ class Bro
     @supernode
   end
 
+  def self.from_json(table)
+    table.map {|b| self.new b}
+  end
+
   def eql?(bro)
     bro.address.eql? self.address
   end

@@ -7,6 +7,7 @@ class Client
     @translator_receiver = Translator::Receiver.new(self)
     @communicator.register_listener translator_receiver
     @translator_sender = Translator::Sender.new(communicator)
+    @supernode = false
   end
 
   def start_listening
@@ -24,5 +25,13 @@ class Client
 
   def greet receiver
     translator_sender.greet receiver, bros_table
+  end
+
+  def supernode?
+    @supernode
+  end
+
+  def elect!
+    @supernode = true
   end
 end

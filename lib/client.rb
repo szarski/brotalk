@@ -34,4 +34,10 @@ class Client
   def elect!
     @supernode = true
   end
+
+  def ensure_supernodes!
+    if !supernode? and bros_table.select {|b| b.supernode?}.empty?
+      elect!
+    end
+  end
 end

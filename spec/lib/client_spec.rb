@@ -130,17 +130,51 @@ describe Client do
   end
 
   describe "#ensure_supernodes!" do
+    before {subject.stub(:supernode?).and_return(is_supernode)}
+    before {subject.stub(:bros_table).and_return(bros_table)}
+
     context "subject is a supernode" do
-      it "should not call #elect!"
+      let(:is_supernode) {true}
+      let(:bros_table) {[]}
+
+      context "subject has a supernode in his bros_table" do
+        let(:bros_table) {[mock(:supernode? => false),mock(:supernode? => true),mock(:supernode? => false)]}
+
+        it "should not call #elect!" do
+          subject.should_receive(:elect!).never
+          subject.ensure_supernodes!
+        end
+      end
+
+      context "subject has no supernodes in his bros_table" do
+        let(:bros_table) {[mock(:supernode? => false),mock(:supernode? => false),mock(:supernode? => false)]}
+
+        it "should not call #elect!" do
+          subject.should_receive(:elect!).never
+          subject.ensure_supernodes!
+        end
+      end
     end
 
     context "subject is not a supernode" do
+      let(:is_supernode) {false}
+
       context "subject has a supernode in his bros_table" do
-        it "should not call #elect!"
+        let(:bros_table) {[mock(:supernode? => false),mock(:supernode? => true),mock(:supernode? => false)]}
+
+        it "should not call #elect!" do
+          subject.should_receive(:elect!).never
+          subject.ensure_supernodes!
+        end
       end
 
       context "subject doesn't have a supernode in his bros table" do
-        it "should call #elect!"
+        let(:bros_table) {[mock(:supernode? => false),mock(:supernode? => false),mock(:supernode? => false)]}
+
+        it "should call #elect!" do
+          subject.should_receive(:elect!).once
+          subject.ensure_supernodes!
+        end
       end
     end
   end

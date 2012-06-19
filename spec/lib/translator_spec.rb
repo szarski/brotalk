@@ -30,9 +30,8 @@ describe Translator::Receiver do
       let_mocks :parsed_bros, :parsed_sender
 
       it "updates bros table with the result of #parse_bros" do
-        pending "should use #parse_bros and pass that instead"
-        client_mock.should_receive(:update_bros).with(bros_mock)
-        client_mock.should_receive(:update_bros).with([parsed_sender])
+        client_mock.should_receive(:update_bros).with(parsed_bros)
+        client_mock.should_receive(:update_bros).with(parsed_sender)
         subject.receive sender_mock, {:message => 'ay bro', :bros_table => bros_mock}.to_json
       end
     end

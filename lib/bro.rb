@@ -11,7 +11,10 @@ class Bro
   end
 
   def self.from_json(table)
-    table.map {|b| self.new b}
+    table.map do |b|
+      raise "incorrect Bro json description: #{b.inspect}" unless b =~ /[^%]+%[01]/
+      self.new *b.split('%')
+    end
   end
 
   def eql?(bro)
@@ -28,5 +31,13 @@ class Bro
 
   def hash
     address.hash
+  end
+
+  def to_json(*args)
+    "#{address}%#{supernode? ? 1 : 0}"
+  end
+
+  def <=>(bro)
+    address <=>bro.address
   end
 end

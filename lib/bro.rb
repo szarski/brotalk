@@ -34,7 +34,7 @@ class Bro
   end
 
   def to_json(*args)
-    "#{address}%#{supernode? ? 1 : 0}"
+    "\"#{address}%#{supernode? ? 1 : 0}\""
   end
 
   def <=>(bro)

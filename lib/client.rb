@@ -1,4 +1,5 @@
 class Client
+  MAX_REGULAR_NODES = 5
   attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table
 
   def initialize
@@ -42,6 +43,13 @@ class Client
   def ensure_supernodes!
     if !supernode? and bros_table.select {|b| b.supernode?}.empty?
       elect!
+    end
+  end
+
+  def clear_bro_table
+    count_of_nodes_to_delete = bros_table.reject {|b| b.supernode?}.count - MAX_REGULAR_NODES
+    if count_of_nodes_to_delete > 0
+      @bros_table = @bros_table.delete_if {|bro| count_of_nodes_to_delete -=1; !bro.supernode? and count_of_nodes_to_delete >= 0}
     end
   end
 end

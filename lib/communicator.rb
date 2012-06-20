@@ -1,4 +1,36 @@
 module Communicator
+  class UDP
+    attr_reader :listeners
+
+    def initialize
+      @listeners = []
+    end
+
+    def register_listener(listener)
+      @listeners << listener
+    end
+
+    def start_listening
+      #TODO:
+      #
+      # start a new thread,
+      # check updates periodically
+      # call #receive if something comes
+    end
+
+    def transmit(address, package)
+      #TODO:
+      #
+      # send data to socket
+    end
+
+    def receive(sender, package)
+      listeners.each do |listener|
+        listener.receive(sender, package)
+      end
+    end
+  end
+
   class Virtual
     attr_reader :listeners
 

@@ -12,6 +12,8 @@ def get_client_by_address(address)
   communicator.listeners.first.client
 end
 
+set :public_folder, 'web_interface'
+
 get '/clients.json' do
   hashes = simulator.listeners.map do |address, communicator|
     {:address => address, :bros_table => get_client_by_address(address).bros_table.to_json}
@@ -23,3 +25,8 @@ get '/clients/:address/call/:method_name/:arguments' do
   simulator.greet(params[:address], params[:arguments])
   "ok"
 end
+
+get "/" do
+  redirect '/index.html'
+end
+

@@ -19,12 +19,16 @@ class Client
     new_entries = (new_bros_table - @bros_table)
     @bros_table = new_bros_table
     new_entries.each do |bro|
-      greet bro
+      greet_bro bro
     end
   end
 
-  def greet receiver
-    translator_sender.greet receiver, bros_table
+  def greet_bro bro
+    greet bro.address
+  end
+
+  def greet address
+    translator_sender.greet address, bros_table
   end
 
   def supernode?

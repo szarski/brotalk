@@ -4,7 +4,7 @@ class Client
 
   def initialize
     @bros_table = []
-    @communicator = Communicator.new
+    @communicator = Communicator::DEFAULT_CLASS.new
     @translator_receiver = Translator::Receiver.new(self)
     @communicator.register_listener translator_receiver
     @translator_sender = Translator::Sender.new(communicator)

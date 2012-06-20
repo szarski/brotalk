@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe "supernodes" do
 
-  before {Communicator.clear_listeners}
+  before {Communicator::DEFAULT_CLASS.clear_listeners}
 
   def c
     r=Client.new; r.start_listening; r
   end
 
   def addresses
-    Communicator.listeners.keys
+    Communicator::DEFAULT_CLASS.listeners.keys
   end
 
   it "nodes convey an election" do

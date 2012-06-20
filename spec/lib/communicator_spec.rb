@@ -1,17 +1,17 @@
 require File.join(File.dirname(__FILE__), '../spec_helper')
 
-describe Communicator do
+describe Communicator::DEFAULT_CLASS do
 
-  subject {Communicator.new}
+  subject {Communicator::DEFAULT_CLASS.new}
   let(:package) {mock}
   let(:receiver_ip) {mock}
   let(:sender) {mock}
   let(:sender_address) {mock}
-  before {Communicator.stub(:reverse_lookup).with(sender).and_return(sender_address)}
+  before {Communicator::DEFAULT_CLASS.stub(:reverse_lookup).with(sender).and_return(sender_address)}
 
   describe ".listeners" do
     it "should be empty by default" do
-      Communicator.clear_listeners
+      Communicator::DEFAULT_CLASS.clear_listeners
       described_class.listeners.should == {}
     end
   end

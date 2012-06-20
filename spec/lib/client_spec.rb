@@ -7,7 +7,7 @@ describe Client do
     let(:translator_sender) {mock}
 
     it "initializes the communicator" do
-      Communicator.stub(:new).with.and_return communicator
+      Communicator::DEFAULT_CLASS.stub(:new).with.and_return communicator
       communicator.stub(:register_listener)
       described_class.new.communicator.should == communicator
     end
@@ -18,7 +18,7 @@ describe Client do
     end
 
     it "tells communicator to register translator receiver as a listener" do
-      Communicator.stub(:new).and_return communicator
+      Communicator::DEFAULT_CLASS.stub(:new).and_return communicator
       Translator::Receiver.stub(:new).and_return translator_receiver
       communicator.should_receive(:register_listener).with(translator_receiver)
       described_class.new

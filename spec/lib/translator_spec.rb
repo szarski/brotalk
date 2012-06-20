@@ -27,11 +27,12 @@ describe Translator::Receiver do
     context "when receives greetings" do
       before {subject.stub(:parse_bros).with(bros_mock).and_return(parsed_bros)}
       before {subject.stub(:parse_bros).with([sender_mock]).and_return(parsed_sender)}
-      let_mocks :parsed_bros, :parsed_sender
+      let_mocks :parsed_bros, :parsed_sender, :all_bros
 
       it "updates bros table with the result of #parse_bros" do
-        client_mock.should_receive(:update_bros).with(parsed_bros)
-        client_mock.should_receive(:update_bros).with(parsed_sender)
+        parsed_bros.stub(:+).with {|bro| bro.first.address == sender_mock}.and_return(all_bros)
+        client_mock.should_receive(:update_bros).with(all_bros)
+        client_mock.stub(:greet_bro)
         subject.receive sender_mock, {:message => 'ay bro', :bros_table => bros_mock}.to_json
       end
     end

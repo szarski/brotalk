@@ -30,13 +30,13 @@ describe "propagation" do
 
     bros_indexes = [1,2,5,9]
     other_bros_indexes = ((0..9).to_a - [1,2,5])
-    clients.values_at(*bros_indexes).select {|c| c.bros_table.sort == Communicator.listeners.keys.values_at(*bros_indexes).sort}.count.should == 4
+    clients.values_at(*bros_indexes).select {|c| c.bros_table.map(&:address).sort == Communicator.listeners.keys.values_at(*bros_indexes).sort}.count.should == 4
     clients.values_at(*other_bros_indexes).select {|c| c.bros_table.empty?}.count.should == 6
   end
 
   scenario "each bro is given the last bro's address, everyone knows everybody" do
     clients.map &:start_listening
     clients.map {|c| c.greet Communicator.listeners.keys.last}
-    clients.select {|c| c.bros_table.sort == Communicator.listeners.keys.sort}.count.should == 10
+    clients.select {|c| c.bros_table.map(&:address).sort == Communicator.listeners.keys.sort}.count.should == 10
   end
 end

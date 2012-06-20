@@ -19,6 +19,7 @@ class Client
     new_bros_table = (@bros_table + bros_table_update).uniq
     new_entries = (new_bros_table - @bros_table)
     @bros_table = new_bros_table
+    ensure_supernodes!
     new_entries.each do |bro|
       greet_bro bro
     end

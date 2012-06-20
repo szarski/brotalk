@@ -36,8 +36,8 @@ describe Bro do
 
   describe "#to_json" do
     it "transforms properly" do
-      Bro.new('abc', false).to_json.should == "abc%0"
-      Bro.new('abc', true).to_json.should == "abc%1"
+      Bro.new('abc', false).to_json.should == "\"abc%0\""
+      Bro.new('abc', true).to_json.should == "\"abc%1\""
     end
   end
 

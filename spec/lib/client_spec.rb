@@ -66,7 +66,7 @@ describe Client do
 
     context "when #bros_table is empty" do
       let(:bro_table_mock) { [] } 
-      let(:bro_table_update) { ["1.2.3.1","1.2.3.2","1.2.3.3"] } 
+      let(:bro_table_update) { Bro.from_json ["1.2.3.1%0","1.2.3.2%0","1.2.3.3%0"] } 
 
       it "bros table is equal to the incoming records" do
         subject.stub(:greet)
@@ -81,9 +81,9 @@ describe Client do
     end
 
     context "when #bros_table has some existing records" do
-      let(:bro_table_mock) { ["1.1.1.1","2.2.2.2"] }
-      let(:bro_table_update) { ["3.3.3.3", "4.4.4.4"] }
-      let(:bro_table_updated) { ["1.1.1.1","2.2.2.2", "3.3.3.3", "4.4.4.4"] }
+      let(:bro_table_mock) { Bro.from_json ["1.1.1.1%0","2.2.2.2%0"] }
+      let(:bro_table_update) { Bro.from_json ["3.3.3.3%0", "4.4.4.4%0"] }
+      let(:bro_table_updated) { Bro.from_json ["1.1.1.1%0","2.2.2.2%0", "3.3.3.3%0", "4.4.4.4%0"] }
 
       it "bros table is merged from existing and incoming records" do
         subject.stub(:greet)
@@ -98,9 +98,9 @@ describe Client do
     end
 
     context "when #bros_table has some common records" do
-      let(:bro_table_mock) { ["1.1.1.1", "2.2.2.2"] }
-      let(:bro_table_update) { ["2.2.2.2", "3.3.3.3"] }
-      let(:bro_table_updated) { ["1.1.1.1", "2.2.2.2", "3.3.3.3"] }
+      let(:bro_table_mock) { Bro.from_json ["1.1.1.1%0", "2.2.2.2%0"] }
+      let(:bro_table_update) { Bro.from_json ["2.2.2.2%0", "3.3.3.3%0"] }
+      let(:bro_table_updated) { Bro.from_json ["1.1.1.1%0", "2.2.2.2%0", "3.3.3.3%0"] }
 
       it "bros table is merged from existing and incoming records without "\
         "doubled records" do

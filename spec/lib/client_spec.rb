@@ -180,12 +180,24 @@ describe Client do
   end
 
   describe "#clear_bro_table" do
+    before {Client.send(:remove_const, :MAX_REGULAR_NODES); Client::MAX_REGULAR_NODES = 3}
     context "bro table has 3 supernodes and MAX_REGULAR_NODES - 1 regular nodes" do
-      it "should not change the bro table"
+      before {subject.instance_variable_set "@bros_table", [mock(:supernode? => false), mock(:supernode? => true), mock(:supernode? => true), mock(:supernode? => false)]}
+      
+      it "should not change the bro table" do
+        subject.bros_table.size.should == 4
+        subject.clear_bro_table
+        subject.bros_table.size.should == 4
+      end
     end
 
     context "bro table has 3 supernodes and MAX_REGULAR_NODES + 1 regular nodes" do
-      it "should trimm the number of regular nodes to 1"
+      before {subject.instance_variable_set "@bros_table", [mock(:supernode? => false), mock(:supernode? => true), mock(:supernode? => true), mock(:supernode? => false), mock(:supernode? => false), mock(:supernode? => false)]}
+      it "should trimm the number of regular nodes to 1" do
+        subject.bros_table.size.should == 6
+        subject.clear_bro_table
+        subject.bros_table.size.should == 5
+      end
     end
   end
 end

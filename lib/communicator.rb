@@ -11,7 +11,7 @@ class Communicator
   end
 
   def self.register(communicator)
-    ip = "ip_#{(10000000000*rand).round}"
+    ip = "ip_#{(10000*rand).round}"
     @listeners[ip] = communicator
   end
 
@@ -42,6 +42,7 @@ class Communicator
 
   def self.transmit(sender, address, package)
     sender_address = reverse_lookup(sender)
+    #puts "#{sender_address} -> #{address} : #{package}"
     unless listeners[address]
       raise "address unregistered #{address.inspect}"
     end

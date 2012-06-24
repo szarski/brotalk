@@ -70,12 +70,12 @@ Controller = Class({
       var node = this.sys.getNode(x);
       if (node) {
         _.each(this.sys.getEdgesFrom(node), function(edge){
-          if (!_.include(ys, edge.target.name))
+          if (!_.include(ys, edge.source.name))
             this.sys.pruneEdge(edge);
         }.bind(this));
       }
       _.each(ys, function(y){
-        this.sys.addEdge(x,y, {type: 'ident-arrow',color: 'black', directed: 1});
+        this.sys.addEdge(y, x, {type: 'ident-arrow',color: 'black', directed: 1});
       }.bind(this));
     }.bind(this));
   },

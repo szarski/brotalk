@@ -55,8 +55,14 @@ class Client
 
   def clear_bro_table
     count_of_nodes_to_delete = bros_table.reject {|b| b.supernode?}.count - MAX_REGULAR_NODES
-    if count_of_nodes_to_delete > 0
-      @bros_table = @bros_table.delete_if {|bro| count_of_nodes_to_delete -=1; !bro.supernode? and count_of_nodes_to_delete >= 0}
+    if !supernode? and count_of_nodes_to_delete > 0
+      @bros_table = @bros_table.delete_if do |bro|
+        d=(!bro.supernode? and count_of_nodes_to_delete >= 0)
+        if d
+          count_of_nodes_to_delete -=1;
+        end
+        d
+      end
     end
   end
 end

@@ -20,7 +20,7 @@ end
 
 get '/clients.json' do
   hashes = simulator.listeners.map do |address, communicator|
-    {:address => address, :bros_table => get_client_by_address(address).bros_table.to_json}
+    {:address => address, :bros_table => get_client_by_address(address).bros_table.to_json, :supernode => get_client_by_address(address).supernode?}
   end
   hashes.to_json
 end

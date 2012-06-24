@@ -10,6 +10,7 @@ class Simulator
     20.times do
       c = Client.new
       c.start_listening
+      sleep rand * 1
     end
   end
 

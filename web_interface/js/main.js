@@ -52,7 +52,10 @@ Controller = Class({
 
   receive_load_clients: function(data) {
     _.each(JSON.parse(data), function(client){
-      this.sys.addNode(client['address'],{'color':'#CCC','shape':'dot','label':client['address']});
+      if (client.supernode)
+        this.sys.addNode(client['address'],{'color':'#CFF','shape':'dot','label':client['address']});
+      else
+        this.sys.addNode(client['address'],{'color':'#CCC','shape':'dot','label':client['address']});
     }.bind(this));
   },
 

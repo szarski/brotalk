@@ -1,7 +1,7 @@
 Controller = Class({
   initialize: function(viewport, log_container, display, greet_button) {
     this.viewport = viewport;
-    this.sys = arbor.ParticleSystem(1000, 40,1);
+    this.sys = arbor.ParticleSystem(1000, 10,1);
     this.sys.parameters({gravity:true});
     this.sys.renderer = Renderer(viewport) ;
     this.log_container = log_container;
@@ -70,7 +70,8 @@ Controller = Class({
   },
 
   greet: function() {
-    $.get('/clients/'+this.selected_node_1+'/greet/'+this.selected_node_2);
+    if (this.selected_node_1 && this.selected_node_2)
+      $.get('/clients/'+this.selected_node_1+'/greet/'+this.selected_node_2);
   },
 
   load_logs: function() {

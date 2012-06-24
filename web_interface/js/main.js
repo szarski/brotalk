@@ -1,7 +1,7 @@
 Controller = Class({
   initialize: function(viewport, log_container, display, greet_button) {
     this.viewport = viewport;
-    this.sys = arbor.ParticleSystem(1000, 10,1);
+    this.sys = arbor.ParticleSystem(10000, 10,1);
     this.sys.parameters({gravity:true});
     this.sys.renderer = Renderer(viewport) ;
     this.log_container = log_container;
@@ -65,8 +65,16 @@ Controller = Class({
 
   load_connections_receive: function(data) {
     _.each(JSON.parse(data), function(description){
-      x=description[0];
-      _.each(description[1], function(y){
+      var x=description[0];
+      var ys = description[1]
+      var node = this.sys.getNode(x);
+      if (node) {
+        _.each(this.sys.getEdgesFrom(node), function(edge){
+          if (!_.include(ys, edge.target.name))
+            this.sys.pruneEdge(edge);
+        }.bind(this));
+      }
+      _.each(ys, function(y){
         this.sys.addEdge(x,y, {type: 'ident-arrow',color: 'black', directed: 1});
       }.bind(this));
     }.bind(this));

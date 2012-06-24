@@ -33,9 +33,9 @@ module Communicator
 
   class Virtual
     attr_reader :listeners
-
     def self.clear_listeners
       @listeners={}
+      @loggers = []
     end
     clear_listeners
 
@@ -75,7 +75,7 @@ module Communicator
 
     def self.transmit(sender, address, package)
       sender_address = reverse_lookup(sender)
-      #puts "#{sender_address} -> #{address} : #{package}"
+      log "#{sender_address} -> #{address} : #{package}"
       unless listeners[address]
         raise "address unregistered #{address.inspect}"
       end
@@ -86,6 +86,20 @@ module Communicator
       listeners.each do |listener|
         listener.receive(sender, package)
       end
+    end
+
+    def self.register_logger(logger)
+      @loggers << logger
+    end
+
+    def self.log(message)
+      loggers.each do |logger|
+        logger.log message
+      end
+    end
+
+    def self.loggers
+      @loggers
     end
   end
 

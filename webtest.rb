@@ -2,15 +2,21 @@ require File.join(File.dirname(__FILE__), 'lib', 'brotalk')
 require 'drb'
 
 class Simulator
-  def initialize
-    Thread.new do
-    c1 = Client.new
-    c1.start_listening
-    c2 = Client.new
-    c2.start_listening
+  attr_reader :logs
 
-    c2.greet listeners.keys.first
+  def initialize
+    @logs = []
+      Communicator::DEFAULT_CLASS.register_logger(self)
+      c1 = Client.new
+      c1.start_listening
+      c2 = Client.new
+      c2.start_listening
+
+    #  c2.greet listeners.keys.first
   end
+
+  def log(msg)
+    @logs << msg
   end
 
   def listeners
@@ -19,6 +25,9 @@ class Simulator
 
   def greet(sender, recipient)
     listeners[sender].listeners.first.client.greet recipient
+  end
+
+  def messages
   end
 end
 

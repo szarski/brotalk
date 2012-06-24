@@ -1,8 +1,10 @@
 Controller = Class({
-  initialize: function(viewport) {
+  initialize: function(viewport, log_container) {
     this.sys = arbor.ParticleSystem(1000, 400,1);
     this.sys.parameters({gravity:true});
     this.sys.renderer = Renderer(viewport) ;
+    this.log_container = log_container;
+    setInterval(this.load_logs.bind(this), 1000);
   },
 
   load_clients: function() {
@@ -26,11 +28,28 @@ Controller = Class({
         this.sys.addEdge(x,y, {type: 'ident-arrow',color: 'black', directed: 1});
       }.bind(this));
     }.bind(this));
+  },
+
+  greet: function(sender, receiver) {
+    $.get('/clients/'+sender+'/greet/'+receiver);
+  },
+
+  load_logs: function() {
+    $.get('/logs.json', this.load_logs_receive.bind(this));
+  },
+
+  load_logs_receive: function(data) {
+    var c = $(this.log_container);
+    var r = '';
+    _.each(JSON.parse(data).reverse(), function(x) {
+      r += '<li>'+x+'</li>';
+    });
+    c.html(r);
   }
 });
 
 $(document).ready(function() {
-  controller = new Controller("#viewport");
+  controller = new Controller("#viewport", "#log_container");
   controller.load_clients();
   controller.load_connections();
 });

@@ -14,6 +14,10 @@ end
 
 set :public_folder, 'web_interface'
 
+get '/logs.json' do
+  simulator.logs.to_json
+end
+
 get '/clients.json' do
   hashes = simulator.listeners.map do |address, communicator|
     {:address => address, :bros_table => get_client_by_address(address).bros_table.to_json}
@@ -28,8 +32,9 @@ get '/connections.json' do
   hashes.to_json
 end
 
-get '/clients/:address/call/:method_name/:arguments' do
-  simulator.greet(params[:address], params[:arguments])
+get '/clients/:sender_address/greet/:receiver_address' do
+  #puts(params[:sender_address].inspect, params[:receiver_address].inspect)
+  simulator.greet(params[:sender_address], params[:receiver_address])
   "ok"
 end
 

@@ -6,13 +6,11 @@ class Simulator
 
   def initialize
     @logs = []
-      Communicator::DEFAULT_CLASS.register_logger(self)
-      c1 = Client.new
-      c1.start_listening
-      c2 = Client.new
-      c2.start_listening
-
-    #  c2.greet listeners.keys.first
+    Communicator::DEFAULT_CLASS.register_logger(self)
+    20.times do
+      c = Client.new
+      c.start_listening
+    end
   end
 
   def log(msg)

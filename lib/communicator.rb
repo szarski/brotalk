@@ -1,9 +1,14 @@
+require "socket"
+require "lib/communicator/udp_listener"
+require "lib/communicator/udp_sender"
+
 module Communicator
+  BROTALK_PORT=8899
+
   class UDP
-    attr_reader :listeners
+    attr_reader :listeners, :udp_listener, :udp_sender
 
     def initialize
-      @listeners = []
     end
 
     def register_listener(listener)
@@ -11,17 +16,14 @@ module Communicator
     end
 
     def start_listening
-      #TODO:
-      #
-      # start a new thread,
-      # check updates periodically
-      # call #receive if something comes
+      Thread.new do
+        udp_listener = UDPListener.new(address, port, self)
+        udp_listener.listen
+      end
     end
 
-    def transmit(address, package)
-      #TODO:
-      #
-      # send data to socket
+    def transmit(package, address, port=BROTALK_PORT)
+      UDPSender.send_message(package, address, port)
     end
 
     def receive(sender, package)

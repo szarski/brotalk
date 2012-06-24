@@ -1,6 +1,6 @@
 class Client
-  MAX_REGULAR_NODES = 5
-  attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table
+  MAX_REGULAR_NODES = 2
+  attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table, :thread
 
   def initialize
     @bros_table = []
@@ -9,6 +9,12 @@ class Client
     @communicator.register_listener translator_receiver
     @translator_sender = Translator::Sender.new(communicator)
     @supernode = false
+    c = self
+    @thread = Thread.new {loop {sleep(3); c.periodically}}
+  end
+
+  def periodically
+    clear_bro_table
   end
 
   def start_listening
@@ -30,7 +36,7 @@ class Client
   end
 
   def greet address
-    translator_sender.greet address, bros_table
+    translator_sender.greet address, bros_table, supernode?
   end
 
   def supernode?

@@ -13,7 +13,8 @@ class Bro
   def self.from_json(table)
     table.map do |b|
       raise "incorrect Bro json description: #{b.inspect}" unless b =~ /[^%]+%[01]/
-      self.new *b.split('%')
+      a, s = b.split('%')
+      self.new a, (s.to_i > 0)
     end
   end
 

@@ -10,7 +10,7 @@ module MessageBuilder
   def prepare_message(message_type, message_body)
     case message_type
     when :greeting
-      {"message" => "ay bro", "bros_table" => message_body}
+      {"message" => "ay bro", "bros_table" => message_body[:bros_table], "supernode" => (message_body[:supernode] ? 1 : 0)}
     when :regular
       {"message" => message_body}
     else

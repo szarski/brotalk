@@ -24,7 +24,7 @@ module Translator
       def route_message(parsed_message, sender)
         case parsed_message[:message_type]
         when :greetings
-          @client.update_bros parse_bros(parsed_message["bros_table"]) + [Bro.new(sender, false)]
+          @client.update_bros parse_bros(parsed_message["bros_table"]) + [Bro.new(sender, (parsed_message["supernode"].to_i > 0))]
         when :regular
           @client.message parsed_message["message"]
         end
@@ -41,8 +41,8 @@ module Translator
       @communicator = communicator
     end
 
-    def greet(sender, bros_table)
-      greet_json = build_message(:greeting, bros_table)
+    def greet(sender, bros_table, supernode)
+      greet_json = build_message(:greeting, {:bros_table => bros_table, :supernode => supernode})
       @communicator.transmit(sender, greet_json)
     end
 

@@ -1,4 +1,5 @@
 class Client
+  # oneself may be counted in here
   MAX_REGULAR_NODES = 2
   attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table, :thread
 

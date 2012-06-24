@@ -8,7 +8,6 @@ $.get('/clients.json', draw);
 }
 
 function draw(data) {
-  alert(data);
     var width = $(document).width();
     var height = $(document).height() - 100;
 
@@ -21,7 +20,7 @@ function draw(data) {
 
 
     _.each(JSON.parse(data), function(client){
-    g.addNode(client['address']);
+      g.addNode(client['address']);
     });
 
     /* layout the graph using the Spring layout implementation */

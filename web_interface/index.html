@@ -1,21 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>BroTalk</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="js/arbor.js"></script>  
+    <script type="text/javascript" src="js/class.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
-    <!-- jQuery -->
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-    <!--  The Raphael JavaScript library for vector graphics display  -->
-    <script type="text/javascript" src="js/raphael-min.js"></script>
-    <!--  Dracula  -->
-    <!--  An extension of Raphael for connecting shapes -->
-    <script type="text/javascript" src="js/dracula_graffle.js"></script>
-    <!--  Graphs  -->
-    <script type="text/javascript" src="js/dracula_graph.js"></script>
-    <script type="text/javascript" src="js/dracula_algorithms.js"></script>
-    <script type="text/javascript" src="js/algorithms.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/samizdatco/arbor/master/demos/_/graphics.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/samizdatco/arbor/master/demos/halfviz/src/renderer.js"></script>
   </head>
   <body>
-    <div id="canvas"></div>
-    Looks ugly? Hit <button id="redraw" onclick="redraw();">redraw</button>!<br>
-    <!--<button onclick="step(-1)">Previous step</button> - <button onclick="step(1)">Next step</button>-->
+    <canvas id="viewport" width="800" height="600"></canvas>
   </body>
 </html>

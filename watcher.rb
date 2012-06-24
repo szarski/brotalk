@@ -21,6 +21,13 @@ get '/clients.json' do
   hashes.to_json
 end
 
+get '/connections.json' do
+  hashes = simulator.listeners.map do |address, communicator|
+    [address, get_client_by_address(address).bros_table.map(&:address)]
+  end
+  hashes.to_json
+end
+
 get '/clients/:address/call/:method_name/:arguments' do
   simulator.greet(params[:address], params[:arguments])
   "ok"

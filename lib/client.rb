@@ -27,7 +27,6 @@ class Client
   end
 
   def periodically
-    puts "periodically"
     clear_bro_table
     ping_bros
   end
@@ -98,12 +97,9 @@ class Client
     def ping_bros
       @bros_table.each_with_index do |bro, index|
         last_activity_relatvie = Time.now.to_i - bro.last_activity
-        puts last_activity_relatvie
         if last_activity_relatvie > ZOMBIE_KILL_LIMIT
-          puts "deleting bro"
           @bros_table.delete_at(index)
         elsif last_activity_relatvie > ZOMBIE_CHECK_LIMIT
-          puts "pinging bro"
           is_alive?(bro)
         end
       end

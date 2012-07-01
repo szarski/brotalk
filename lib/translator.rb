@@ -50,7 +50,7 @@ module Translator
 
     def send_message(sender, message)
       message_json = build_message(:regular, message)
-      @communicator.transmit(sender, message_json)
+      @communicator.transmit(message_json, sender)
     end
   end
 end

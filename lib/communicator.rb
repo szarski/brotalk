@@ -67,7 +67,7 @@ module Communicator
       @listeners << listener
     end
 
-    def transmit(address, package)
+    def transmit(package, address)
       self.class.transmit(self, address, package)
     end
 

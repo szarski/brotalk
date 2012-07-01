@@ -70,12 +70,9 @@ class Client
 
   private
     def update_last_activity!(sender_address)
-      @bros_table.map! do |entry|
+      @bros_table.each_with_index do |entry, index|
         if entry.address == sender_address 
-          entry.last_activity = Time.now.to_i
-          entry
-        else
-          entry
+          @bros_table[index].last_activity = Time.now.to_i
         end
       end
     end

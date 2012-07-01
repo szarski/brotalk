@@ -4,37 +4,292 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+<=>	lib/bro.rb	/^  def <=>(bro)$/;"	f	class:Bro
+==	lib/bro.rb	/^  def ==(bro)$/;"	f	class:Bro
+ARC4	web_interface/js/seedrandom.js	/^function ARC4(key) {$/;"	f
+AbstractEdge	web_interface/js/dracula_graph.js	/^var AbstractEdge = function() {$/;"	f
+AbstractEdge	web_interface/js/dracula_graph.js	/^}$/;"	c
+AbstractEdge.hide	web_interface/js/dracula_graph.js	/^AbstractEdge.prototype = {$/;"	m
+Array	web_interface/js/dracula_graph.js	/^{$/;"	c
+Array.forEach	web_interface/js/dracula_graph.js	/^  Array.prototype.forEach = function(fun \/*, thisp*\/)$/;"	m
+ArrayProto	web_interface/js/underscore.js	/^  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;$/;"	v
+BTree	web_interface/js/dracula_algorithms.js	/^function BTree(arr) {$/;"	f
+BinaryMinHeap	web_interface/js/dracula_algorithms.js	/^function BinaryMinHeap(array, key) {$/;"	c
+BinaryMinHeap.bubble_down	web_interface/js/dracula_algorithms.js	/^    function bubble_down(i) {$/;"	f
+BinaryMinHeap.bubble_up	web_interface/js/dracula_algorithms.js	/^    function bubble_up(i) {$/;"	f
+BinaryMinHeap.changeKey	web_interface/js/dracula_algorithms.js	/^    this.changeKey = function(index, key) {$/;"	m
+BinaryMinHeap.extractMin	web_interface/js/dracula_algorithms.js	/^    this.extractMin = function() {$/;"	m
+BinaryMinHeap.heapify	web_interface/js/dracula_algorithms.js	/^    this.heapify = function() {$/;"	m
+BinaryMinHeap.insert	web_interface/js/dracula_algorithms.js	/^    this.insert = function(element) {$/;"	m
+BinaryMinHeap.left	web_interface/js/dracula_algorithms.js	/^    var left = function(index) { return 2 * index + 1; };$/;"	f
+BinaryMinHeap.min	web_interface/js/dracula_algorithms.js	/^    this.min = function() {$/;"	m
+BinaryMinHeap.parent	web_interface/js/dracula_algorithms.js	/^    var parent = function(index) { return Math.floor((index - 1)\/2); };$/;"	f
+BinaryMinHeap.right	web_interface/js/dracula_algorithms.js	/^    var right = function(index) { return 2 * index + 2; };$/;"	f
+Bro	lib/bro.rb	/^class Bro$/;"	c
 Brotalk	lib/brotalk.rb	/^module Brotalk$/;"	m
+Class	web_interface/js/class.js	/^};$/;"	f
+Class.klass	web_interface/js/class.js	/^  var klass = function(){$/;"	f
 Client	lib/client.rb	/^class Client$/;"	c
-Communicator	lib/communicator.rb	/^class Communicator$/;"	c
+Communicator	lib/communicator.rb	/^module Communicator$/;"	m
+DEFAULT_CLASS_PROTOTYPE.option_or_default	web_interface/js/class.js	/^DEFAULT_CLASS_PROTOTYPE = {$/;"	m
+EdgeFactory	web_interface/js/dracula_graph.js	/^var EdgeFactory = function() {$/;"	c
+EdgeFactory.build	web_interface/js/dracula_graph.js	/^EdgeFactory.prototype = {$/;"	m
+Graph	web_interface/js/dracula_graph.js	/^var Graph = function() {$/;"	c
+Graph.Layout.Ordered	web_interface/js/dracula_graph.js	/^};$/;"	c
+Graph.Layout.Ordered.layout	web_interface/js/dracula_graph.js	/^Graph.Layout.Ordered.prototype = {$/;"	m
+Graph.Layout.Ordered.layoutCalcBounds	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Layout.Ordered.layoutPrepare	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Layout.Spring	web_interface/js/dracula_graph.js	/^Graph.Layout = {};$/;"	c
+Graph.Layout.Spring.layout	web_interface/js/dracula_graph.js	/^Graph.Layout.Spring.prototype = {$/;"	m
+Graph.Layout.Spring.layoutAttractive	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Layout.Spring.layoutCalcBounds	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Layout.Spring.layoutIteration	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Layout.Spring.layoutPrepare	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Layout.Spring.layoutRepulsive	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Node	web_interface/js/dracula_graph.js	/^};$/;"	c
+Graph.Node	web_interface/js/dracula_graph.js	/^};$/;"	f
+Graph.Renderer.Raphael	web_interface/js/dracula_graph.js	/^Graph.Renderer = {};$/;"	c
+Graph.Renderer.Raphael.dragger	web_interface/js/dracula_graph.js	/^    this.dragger = function (e) {$/;"	m
+Graph.Renderer.Raphael.draw	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Renderer.Raphael.drawEdge	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Renderer.Raphael.drawNode	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Renderer.Raphael.rotate	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.Renderer.Raphael.translate	web_interface/js/dracula_graph.js	/^Graph.Renderer.Raphael.prototype = {$/;"	m
+Graph.addEdge	web_interface/js/dracula_graph.js	/^    },$/;"	m
+Graph.addNode	web_interface/js/dracula_graph.js	/^Graph.prototype = {$/;"	m
+J	web_interface/js/jquery-1.4.2.min.js	/^e(a[0],b):w}function J(){return(new Date).getTime()}function Y(){return false}function Z(){return true}function na(a,b,d){d[0].type=a;return c.event.handle.apply(b,d)}function oa(a){var b,d=[],f=[],e=arguments,j,i,o,k,n,r;i=c.data(this,"events");if(!(a.liveFired===this||!i||!i.live||a.button&&a.type==="click")){a.liveFired=this;var u=i.live.slice(0);for(k=0;k<u.length;k++){i=u[k];i.origType.replace(O,"")===a.type?f.push(i.selector):u.splice(k--,1)}j=c(a.target).closest(f,a.currentTarget);n=0;for(r=$/;"	f
 MessageBuilder	lib/translator/message_builder.rb	/^module MessageBuilder$/;"	m	class:MessageBuilderError
 MessageBuilderError	lib/translator/message_builder.rb	/^class MessageBuilderError < StandardError;end$/;"	c
 MessageBuilderTestClass	spec/lib/translator/message_builder_spec.rb	/^class MessageBuilderTestClass;end$/;"	c
 MessageParser	lib/translator/message_parser.rb	/^module MessageParser$/;"	m
 MessageParserTestClass	spec/lib/translator/message_parser_spec.rb	/^class MessageParserTestClass;end$/;"	c
+NaryTree	web_interface/js/dracula_algorithms.js	/^function NaryTree(n, arr) {$/;"	f
+Qa	web_interface/js/jquery-1.4.2.min.js	/^(function(A,w){function ma(){if(!c.isReady){try{s.documentElement.doScroll("left")}catch(a){setTimeout(ma,1);return}c.ready()}}function Qa(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function X(a,b,d,f,e,j){var i=a.length;if(typeof b==="object"){for(var o in b)X(a,o,b[o],f,e,d);return a}if(d!==w){f=!j&&f&&c.isFunction(d);for(o=0;o<i;o++)e(a[o],b,f?d.call(a[o],o,e(a[o],b)):d,j);return a}return i?$/;"	f
+Raphael.el.tooltip	web_interface/js/dracula_graph.js	/^function log(a) {console.log&&console.log(a);}$/;"	c
+Raphael.el.tooltip.tp.tp.x	web_interface/js/dracula_graph.js	/^    this.tp.o = {x: 0, y: 0};$/;"	p
+Raphael.el.tooltip.tp.tp.y	web_interface/js/dracula_graph.js	/^    this.tp.o = {x: 0, y: 0};$/;"	p
+Raphael.fn.connection	web_interface/js/dracula_graffle.js	/^\/**$/;"	f
+Raphael.fn.connection.edge.draw	web_interface/js/dracula_graffle.js	/^    var edge = {\/*$/;"	m
 Receiver	lib/translator.rb	/^  class Receiver$/;"	c	class:Translator
+RedBlackTree	web_interface/js/dracula_algorithms.js	/^function RedBlackTree(arr) {$/;"	f
 Sender	lib/translator.rb	/^  class Sender$/;"	c	class:Translator
+Simulator	webtest.rb	/^class Simulator$/;"	c
 Translator	lib/translator.rb	/^module Translator$/;"	m
 TwitterWrapper	lib/twitter_wrapper.rb	/^class TwitterWrapper$/;"	c
+UDP	lib/communicator.rb	/^  class UDP$/;"	c	class:Communicator
+UDPListener	lib/communicator/udp_listener.rb	/^class UDPListener$/;"	c
+UDPSender	lib/communicator/udp_sender.rb	/^class UDPSender$/;"	c
+Virtual	lib/communicator.rb	/^  class Virtual$/;"	c	class:Communicator
+X	web_interface/js/jquery-1.4.2.min.js	/^(function(A,w){function ma(){if(!c.isReady){try{s.documentElement.doScroll("left")}catch(a){setTimeout(ma,1);return}c.ready()}}function Qa(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function X(a,b,d,f,e,j){var i=a.length;if(typeof b==="object"){for(var o in b)X(a,o,b[o],f,e,d);return a}if(d!==w){f=!j&&f&&c.isFunction(d);for(o=0;o<i;o++)e(a[o],b,f?d.call(a[o],o,e(a[o],b)):d,j);return a}return i?$/;"	f
+Y	web_interface/js/jquery-1.4.2.min.js	/^e(a[0],b):w}function J(){return(new Date).getTime()}function Y(){return false}function Z(){return true}function na(a,b,d){d[0].type=a;return c.event.handle.apply(b,d)}function oa(a){var b,d=[],f=[],e=arguments,j,i,o,k,n,r;i=c.data(this,"events");if(!(a.liveFired===this||!i||!i.live||a.button&&a.type==="click")){a.liveFired=this;var u=i.live.slice(0);for(k=0;k<u.length;k++){i=u[k];i.origType.replace(O,"")===a.type?f.push(i.selector):u.splice(k--,1)}j=c(a.target).closest(f,a.currentTarget);n=0;for(r=$/;"	f
+Z	web_interface/js/jquery-1.4.2.min.js	/^e(a[0],b):w}function J(){return(new Date).getTime()}function Y(){return false}function Z(){return true}function na(a,b,d){d[0].type=a;return c.event.handle.apply(b,d)}function oa(a){var b,d=[],f=[],e=arguments,j,i,o,k,n,r;i=c.data(this,"events");if(!(a.liveFired===this||!i||!i.live||a.button&&a.type==="click")){a.liveFired=this;var u=i.live.slice(0);for(k=0;k<u.length;k++){i=u[k];i.origType.replace(O,"")===a.type?f.push(i.selector):u.splice(k--,1)}j=c(a.target).closest(f,a.currentTarget);n=0;for(r=$/;"	f
+_	web_interface/js/underscore.js	/^  var _ = function(obj) { return new wrapper(obj); };$/;"	f
+_.after	web_interface/js/underscore.js	/^  };$/;"	f
+_.bind	web_interface/js/underscore.js	/^  var ctor = function(){};$/;"	f
+_.bindAll	web_interface/js/underscore.js	/^  };$/;"	f
+_.clone	web_interface/js/underscore.js	/^  };$/;"	f
+_.compact	web_interface/js/underscore.js	/^  };$/;"	f
+_.compose	web_interface/js/underscore.js	/^  };$/;"	f
+_.debounce	web_interface/js/underscore.js	/^  };$/;"	f
+_.debounce.later	web_interface/js/underscore.js	/^      var later = function() {$/;"	f
+_.defaults	web_interface/js/underscore.js	/^  };$/;"	f
+_.defer	web_interface/js/underscore.js	/^  };$/;"	f
+_.delay	web_interface/js/underscore.js	/^  };$/;"	f
+_.difference	web_interface/js/underscore.js	/^  };$/;"	f
+_.extend	web_interface/js/underscore.js	/^  };$/;"	f
+_.flatten	web_interface/js/underscore.js	/^  };$/;"	f
+_.groupBy	web_interface/js/underscore.js	/^  };$/;"	f
+_.has	web_interface/js/underscore.js	/^  };$/;"	f
+_.identity	web_interface/js/underscore.js	/^  };$/;"	f
+_.indexOf	web_interface/js/underscore.js	/^  };$/;"	f
+_.initial	web_interface/js/underscore.js	/^  };$/;"	f
+_.invoke	web_interface/js/underscore.js	/^  };$/;"	f
+_.isArguments	web_interface/js/underscore.js	/^  };$/;"	f
+_.isBoolean	web_interface/js/underscore.js	/^  };$/;"	f
+_.isDate	web_interface/js/underscore.js	/^  };$/;"	f
+_.isElement	web_interface/js/underscore.js	/^  };$/;"	f
+_.isEmpty	web_interface/js/underscore.js	/^  };$/;"	f
+_.isEqual	web_interface/js/underscore.js	/^  }$/;"	f
+_.isFinite	web_interface/js/underscore.js	/^  };$/;"	f
+_.isFunction	web_interface/js/underscore.js	/^  }$/;"	f
+_.isNaN	web_interface/js/underscore.js	/^  };$/;"	f
+_.isNull	web_interface/js/underscore.js	/^  };$/;"	f
+_.isNumber	web_interface/js/underscore.js	/^  };$/;"	f
+_.isObject	web_interface/js/underscore.js	/^  };$/;"	f
+_.isRegExp	web_interface/js/underscore.js	/^  };$/;"	f
+_.isString	web_interface/js/underscore.js	/^  };$/;"	f
+_.isUndefined	web_interface/js/underscore.js	/^  };$/;"	f
+_.last	web_interface/js/underscore.js	/^  };$/;"	f
+_.lastIndexOf	web_interface/js/underscore.js	/^  };$/;"	f
+_.max	web_interface/js/underscore.js	/^  };$/;"	f
+_.max.result.computed	web_interface/js/underscore.js	/^    var result = {computed : -Infinity};$/;"	p
+_.memoize	web_interface/js/underscore.js	/^  };$/;"	f
+_.min	web_interface/js/underscore.js	/^  };$/;"	f
+_.min.result.computed	web_interface/js/underscore.js	/^    var result = {computed : Infinity};$/;"	p
+_.noConflict	web_interface/js/underscore.js	/^  };$/;"	f
+_.once	web_interface/js/underscore.js	/^  };$/;"	f
+_.pick	web_interface/js/underscore.js	/^  };$/;"	f
+_.pluck	web_interface/js/underscore.js	/^  };$/;"	f
+_.range	web_interface/js/underscore.js	/^  };$/;"	f
+_.reject	web_interface/js/underscore.js	/^  };$/;"	f
+_.shuffle	web_interface/js/underscore.js	/^  };$/;"	f
+_.size	web_interface/js/underscore.js	/^  };$/;"	f
+_.sortBy	web_interface/js/underscore.js	/^  };$/;"	f
+_.sortedIndex	web_interface/js/underscore.js	/^  };$/;"	f
+_.tap	web_interface/js/underscore.js	/^  };$/;"	f
+_.throttle	web_interface/js/underscore.js	/^  };$/;"	f
+_.throttle.later	web_interface/js/underscore.js	/^      var later = function() {$/;"	f
+_.times	web_interface/js/underscore.js	/^  };$/;"	f
+_.toArray	web_interface/js/underscore.js	/^  };$/;"	f
+_.union	web_interface/js/underscore.js	/^  };$/;"	f
+_.values	web_interface/js/underscore.js	/^  };$/;"	f
+_.without	web_interface/js/underscore.js	/^  };$/;"	f
+_.wrap	web_interface/js/underscore.js	/^  };$/;"	f
+_.zip	web_interface/js/underscore.js	/^  };$/;"	f
+addresses	spec/integration/supernodes_spec.rb	/^  def addresses$/;"	f
+basename	web_interface/js/arbor.js	/^  \/*        etc.js *\/  var trace=function(msg){if(typeof(window)=="undefined"||!window.console){return}var len=arguments.length;var args=[];for(var i=0;i<len;i++){args.push("arguments["+i+"]")}eval("console.log("+args.join(",")+")")};var dirname=function(a){var b=a.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");b.pop();return"\/"+b.join("\/")};var basename=function(b){var c=b.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");var a=c.pop();if(a==""){return null}else{return a}};var _ordinalize_re=\/(\\d)(?=(\\d\\d\\d)+(?!\\d))\/g;var ordinalize=function(a){var b=""+a;if(a<11000){b=(""+a).replace(_ordinalize_re,"$1,")}else{if(a<1000000){b=Math.floor(a\/1000)+"k"}else{if(a<1000000000){b=(""+Math.floor(a\/1000)).replace(_ordinalize_re,"$1,")+"m"}}}return b};var nano=function(a,b){return a.replace(\/\\{([\\w\\-\\.]*)}\/g,function(f,c){var d=c.split("."),e=b[d.shift()];$.each(d,function(){if(e.hasOwnProperty(this)){e=e[this]}else{e=f}});return e})};var objcopy=function(a){if(a===undefined){return undefined}if(a===null){return null}if(a.parentNode){return a}switch(typeof a){case"string":return a.substring(0);break;case"number":return a+0;break;case"boolean":return a===true;break}var b=($.isArray(a))?[]:{};$.each(a,function(d,c){b[d]=objcopy(c)});return b};var objmerge=function(d,b){d=d||{};b=b||{};var c=objcopy(d);for(var a in b){c[a]=b[a]}return c};var objcmp=function(e,c,d){if(!e||!c){return e===c}if(typeof e!=typeof c){return false}if(typeof e!="object"){return e===c}else{if($.isArray(e)){if(!($.isArray(c))){return false}if(e.length!=c.length){return false}}else{var h=[];for(var f in e){if(e.hasOwnProperty(f)){h.push(f)}}var g=[];for(var f in c){if(c.hasOwnProperty(f)){g.push(f)}}if(!d){h.sort();g.sort()}if(h.join(",")!==g.join(",")){return false}}var i=true;$.each(e,function(a){var b=objcmp(e[a],c[a]);i=i&&b;if(!i){return false}});return i}};var objkeys=function(b){var a=[];$.each(b,function(d,c){if(b.hasOwnProperty(d)){a.push(d)}});return a};var objcontains=function(c){if(!c||typeof c!="object"){return false}for(var b=1,a=arguments.length;b<a;b++){if(c.hasOwnProperty(arguments[b])){return true}}return false};var uniq=function(b){var a=b.length;var d={};for(var c=0;c<a;c++){d[b[c]]=true}return objkeys(d)};var arbor_path=function(){var a=$("script").map(function(b){var c=$(this).attr("src");if(!c){return}if(c.match(\/arbor[^\\\/\\.]*.js|dev.js\/)){return c.match(\/.*\\\/\/)||"\/"}});if(a.length>0){return a[0]}else{return null}};$/;"	f
+bellman_ford	web_interface/js/dracula_algorithms.js	/^function bellman_ford(g, source) {$/;"	f
+bind	web_interface/js/underscore.js	/^  _.bind = function bind(func, context) {$/;"	f
 build_message	lib/translator/message_builder.rb	/^  def build_message(message_type, message_body)$/;"	f	class:MessageBuilderError.MessageBuilder
-greet	lib/translator.rb	/^    def greet(sender, bros_table)$/;"	f	class:Translator.Sender
+c	spec/integration/supernodes_spec.rb	/^  def c$/;"	f
+c.fn.init	web_interface/js/jquery-1.4.2.min.js	/^function(b,d){return a.call(b,d,b)}))},end:function(){return this.prevObject||c(null)},push:ba,sort:[].sort,splice:[].splice};c.fn.init.prototype=c.fn;c.extend=c.fn.extend=function(){var a=arguments[0]||{},b=1,d=arguments.length,f=false,e,j,i,o;if(typeof a==="boolean"){f=a;a=arguments[1]||{};b=2}if(typeof a!=="object"&&!c.isFunction(a))a={};if(d===b){a=this;--b}for(;b<d;b++)if((e=arguments[b])!=null)for(j in e){i=a[j];o=e[j];if(a!==o)if(f&&o&&(c.isPlainObject(o)||c.isArray(o))){i=i&&(c.isPlainObject(i)||$/;"	c
+cleanup!	lib/communicator/udp_sender.rb	/^  def cleanup!$/;"	f	class:UDPSender
+clear_bro_table	lib/client.rb	/^  def clear_bro_table$/;"	f	class:Client
+clear_listeners	lib/communicator.rb	/^    def self.clear_listeners$/;"	F	class:Communicator.Virtual
+ctor	web_interface/js/underscore.js	/^  var ctor = function(){};$/;"	f
+curry	web_interface/js/Curry-1.0.1.js	/^function curry( fn ){$/;"	f
+curry	web_interface/js/dracula_algorithms.js	/^function curry( fn ){$/;"	f
+curry.args	web_interface/js/Curry-1.0.1.js	/^};$/;"	f
+curry.args	web_interface/js/dracula_algorithms.js	/^};$/;"	f
+d	web_interface/js/dracula_graph.js	/^    var d = document.getElementById(element);$/;"	m
+d	web_interface/js/dracula_graph.js	/^    };$/;"	m
+dijkstra	web_interface/js/dracula_algorithms.js	/^function dijkstra(g, source) {$/;"	f
+dirname	web_interface/js/arbor.js	/^  \/*        etc.js *\/  var trace=function(msg){if(typeof(window)=="undefined"||!window.console){return}var len=arguments.length;var args=[];for(var i=0;i<len;i++){args.push("arguments["+i+"]")}eval("console.log("+args.join(",")+")")};var dirname=function(a){var b=a.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");b.pop();return"\/"+b.join("\/")};var basename=function(b){var c=b.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");var a=c.pop();if(a==""){return null}else{return a}};var _ordinalize_re=\/(\\d)(?=(\\d\\d\\d)+(?!\\d))\/g;var ordinalize=function(a){var b=""+a;if(a<11000){b=(""+a).replace(_ordinalize_re,"$1,")}else{if(a<1000000){b=Math.floor(a\/1000)+"k"}else{if(a<1000000000){b=(""+Math.floor(a\/1000)).replace(_ordinalize_re,"$1,")+"m"}}}return b};var nano=function(a,b){return a.replace(\/\\{([\\w\\-\\.]*)}\/g,function(f,c){var d=c.split("."),e=b[d.shift()];$.each(d,function(){if(e.hasOwnProperty(this)){e=e[this]}else{e=f}});return e})};var objcopy=function(a){if(a===undefined){return undefined}if(a===null){return null}if(a.parentNode){return a}switch(typeof a){case"string":return a.substring(0);break;case"number":return a+0;break;case"boolean":return a===true;break}var b=($.isArray(a))?[]:{};$.each(a,function(d,c){b[d]=objcopy(c)});return b};var objmerge=function(d,b){d=d||{};b=b||{};var c=objcopy(d);for(var a in b){c[a]=b[a]}return c};var objcmp=function(e,c,d){if(!e||!c){return e===c}if(typeof e!=typeof c){return false}if(typeof e!="object"){return e===c}else{if($.isArray(e)){if(!($.isArray(c))){return false}if(e.length!=c.length){return false}}else{var h=[];for(var f in e){if(e.hasOwnProperty(f)){h.push(f)}}var g=[];for(var f in c){if(c.hasOwnProperty(f)){g.push(f)}}if(!d){h.sort();g.sort()}if(h.join(",")!==g.join(",")){return false}}var i=true;$.each(e,function(a){var b=objcmp(e[a],c[a]);i=i&&b;if(!i){return false}});return i}};var objkeys=function(b){var a=[];$.each(b,function(d,c){if(b.hasOwnProperty(d)){a.push(d)}});return a};var objcontains=function(c){if(!c||typeof c!="object"){return false}for(var b=1,a=arguments.length;b<a;b++){if(c.hasOwnProperty(arguments[b])){return true}}return false};var uniq=function(b){var a=b.length;var d={};for(var c=0;c<a;c++){d[b[c]]=true}return objkeys(d)};var arbor_path=function(){var a=$("script").map(function(b){var c=$(this).attr("src");if(!c){return}if(c.match(\/arbor[^\\\/\\.]*.js|dev.js\/)){return c.match(\/.*\\\/\/)||"\/"}});if(a.length>0){return a[0]}else{return null}};$/;"	f
+draw	web_interface/js/algorithms.js	/^function draw(data) {$/;"	f
+edmonds_karp	web_interface/js/dracula_algorithms.js	/^function edmonds_karp(g, s, t) {$/;"	f
+elect!	lib/client.rb	/^  def elect!$/;"	f	class:Client
+ensure_supernodes!	lib/client.rb	/^  def ensure_supernodes!$/;"	f	class:Client
+eq	web_interface/js/underscore.js	/^  function eq(a, b, stack) {$/;"	f
+eq?	lib/bro.rb	/^  def eq?(bro)$/;"	f	class:Bro
+eql?	lib/bro.rb	/^  def eql?(bro)$/;"	f	class:Bro
+fetch_addresses	lib/twitter_wrapper.rb	/^    def fetch_addresses(twitter_messages)$/;"	f	class:TwitterWrapper
+flatten	web_interface/js/seedrandom.js	/^function flatten(obj, depth, result, prop) {$/;"	f
+floyd_warshall	web_interface/js/dracula_algorithms.js	/^function floyd_warshall(g, source) {$/;"	f
+floyd_warshall.getPath	web_interface/js/dracula_algorithms.js	/^    function getPath(i, j) {$/;"	f
+from_json	lib/bro.rb	/^  def self.from_json(table)$/;"	F	class:Bro
+function.pa	web_interface/js/jquery-1.4.2.min.js	/^j.length;n<r;n++)for(k=0;k<u.length;k++){i=u[k];if(j[n].selector===i.selector){o=j[n].elem;f=null;if(i.preType==="mouseenter"||i.preType==="mouseleave")f=c(a.relatedTarget).closest(i.selector)[0];if(!f||f!==o)d.push({elem:o,handleObj:i})}}n=0;for(r=d.length;n<r;n++){j=d[n];a.currentTarget=j.elem;a.data=j.handleObj.data;a.handleObj=j.handleObj;if(j.handleObj.origHandler.apply(j.elem,e)===false){b=false;break}}return b}}function pa(a,b){return"live."+(a&&a!=="*"?a+".":"")+b.replace(\/\\.\/g,"`").replace(\/ \/g,$/;"	f
+function.qa	web_interface/js/jquery-1.4.2.min.js	/^"&")}function qa(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ra(a,b){var d=0;b.each(function(){if(this.nodeName===(a[d]&&a[d].nodeName)){var f=c.data(a[d++]),e=c.data(this,f);if(f=f&&f.events){delete e.handle;e.events={};for(var j in f)for(var i in f[j])c.event.add(this,j,f[j][i],f[j][i].data)}}})}function sa(a,b,d){var f,e,j;b=b&&b[0]?b[0].ownerDocument||b[0]:s;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===s&&!ta.test(a[0])&&(c.support.checkClone||!ua.test(a[0]))){e=$/;"	f
+get_client_by_address	watcher.rb	/^def get_client_by_address(address)$/;"	f
+getnext	web_interface/js/seedrandom.js	/^  me.g = function getnext(count) {$/;"	f
+greet	lib/client.rb	/^  def greet address$/;"	f	class:Client
+greet	lib/translator.rb	/^    def greet(sender, bros_table, supernode)$/;"	f	class:Translator.Sender
+greet	webtest.rb	/^  def greet(sender, recipient)$/;"	f	class:Simulator
+greet_bro	lib/client.rb	/^  def greet_bro bro$/;"	f	class:Client
+hash	lib/bro.rb	/^  def hash$/;"	f	class:Bro
+initialize	lib/bro.rb	/^  def initialize(address, supernode)$/;"	f	class:Bro
 initialize	lib/client.rb	/^  def initialize$/;"	f	class:Client
-initialize	lib/communicator.rb	/^  def initialize$/;"	f	class:Communicator
+initialize	lib/communicator.rb	/^    def initialize$/;"	f	class:Communicator.UDP
+initialize	lib/communicator.rb	/^    def initialize$/;"	f	class:Communicator.Virtual
+initialize	lib/communicator/udp_listener.rb	/^  def initialize(communicator, address, port)$/;"	f	class:UDPListener
+initialize	lib/communicator/udp_sender.rb	/^  def initialize(address, port)$/;"	f	class:UDPSender
 initialize	lib/translator.rb	/^    def initialize(client)$/;"	f	class:Translator.Receiver
 initialize	lib/translator.rb	/^    def initialize(communicator)$/;"	f	class:Translator.Sender
-listeners	lib/communicator.rb	/^  def self.listeners$/;"	F	class:Communicator
+initialize	lib/twitter_wrapper.rb	/^  def initialize$/;"	f	class:TwitterWrapper
+initialize	webtest.rb	/^  def initialize$/;"	f	class:Simulator
+klass	web_interface/js/class.js	/^  }$/;"	c
+kmp	web_interface/js/dracula_algorithms.js	/^function kmp(p, t) {$/;"	f
+kmp.prefix	web_interface/js/dracula_algorithms.js	/^    function prefix(p) {$/;"	f
+let_mocks	spec/spec_helper.rb	/^def let_mocks(*names)$/;"	f
+list_bros_tables	spec/integration/propagation_spec.rb	/^def list_bros_tables$/;"	f
+listen	lib/communicator/udp_listener.rb	/^  def listen$/;"	f	class:UDPListener
+listeners	lib/communicator.rb	/^    def self.listeners$/;"	F	class:Communicator.Virtual
+listeners	webtest.rb	/^  def listeners$/;"	f	class:Simulator
+load_config	lib/twitter_wrapper.rb	/^    def load_config$/;"	f	class:TwitterWrapper
+log	lib/communicator.rb	/^    def self.log(message)$/;"	F	class:Communicator.Virtual
+log	web_interface/js/dracula_graph.js	/^function log(a) {console.log&&console.log(a);}$/;"	f
+log	webtest.rb	/^  def log(msg)$/;"	f	class:Simulator
+loggers	lib/communicator.rb	/^    def self.loggers$/;"	F	class:Communicator.Virtual
+lowbits	web_interface/js/seedrandom.js	/^function lowbits(n) { return n & (width - 1); }$/;"	f
+math	web_interface/js/seedrandom.js	/^  mixkey(arc4.S, pool);$/;"	f
+me.g	web_interface/js/seedrandom.js	/^  }$/;"	f
+mergeSort	web_interface/js/dracula_algorithms.js	/^function mergeSort(arr) {$/;"	f
+mergeSort.merge	web_interface/js/dracula_algorithms.js	/^    function merge(a, b) {$/;"	f
+messages	webtest.rb	/^  def messages$/;"	f	class:Simulator
+mixkey	web_interface/js/seedrandom.js	/^function mixkey(seed, key, smear, j) {$/;"	f
+move	web_interface/js/dracula_graffle.js	/^            var move = "attr";$/;"	v
+na	web_interface/js/jquery-1.4.2.min.js	/^e(a[0],b):w}function J(){return(new Date).getTime()}function Y(){return false}function Z(){return true}function na(a,b,d){d[0].type=a;return c.event.handle.apply(b,d)}function oa(a){var b,d=[],f=[],e=arguments,j,i,o,k,n,r;i=c.data(this,"events");if(!(a.liveFired===this||!i||!i.live||a.button&&a.type==="click")){a.liveFired=this;var u=i.live.slice(0);for(k=0;k<u.length;k++){i=u[k];i.origType.replace(O,"")===a.type?f.push(i.selector):u.splice(k--,1)}j=c(a.target).closest(f,a.currentTarget);n=0;for(r=$/;"	f
+nativeForEach	web_interface/js/underscore.js	/^  var$/;"	v
+node.hide	web_interface/js/dracula_graph.js	/^    node.edges = [];$/;"	c
+node.render	web_interface/js/dracula_graph.js	/^        if(!node.render) {$/;"	f
+node.show	web_interface/js/dracula_graph.js	/^    };$/;"	c
+oa	web_interface/js/jquery-1.4.2.min.js	/^e(a[0],b):w}function J(){return(new Date).getTime()}function Y(){return false}function Z(){return true}function na(a,b,d){d[0].type=a;return c.event.handle.apply(b,d)}function oa(a){var b,d=[],f=[],e=arguments,j,i,o,k,n,r;i=c.data(this,"events");if(!(a.liveFired===this||!i||!i.live||a.button&&a.type==="click")){a.liveFired=this;var u=i.live.slice(0);for(k=0;k<u.length;k++){i=u[k];i.origType.replace(O,"")===a.type?f.push(i.selector):u.splice(k--,1)}j=c(a.target).closest(f,a.currentTarget);n=0;for(r=$/;"	f
+parse_bros	lib/translator.rb	/^    def parse_bros(bros)$/;"	f	class:Translator.Receiver
 parse_json	lib/translator/message_parser.rb	/^  def parse_json(raw_message)$/;"	f	class:MessageParser
 parse_message	lib/translator/message_parser.rb	/^  def parse_message(raw_message)$/;"	f	class:MessageParser
+path	web_interface/js/dracula_graffle.js	/^            var path = ["M", x1.toFixed(3), y1.toFixed(3), "C", x2, y2, x3, y3, x4.toFixed(3), y4.toFixed(3)].join(",");$/;"	v
+periodically	lib/client.rb	/^  def periodically$/;"	f	class:Client
 prepare_message	lib/translator/message_builder.rb	/^  def prepare_message(message_type, message_body)$/;"	f	class:MessageBuilderError.MessageBuilder
-receive	lib/communicator.rb	/^  def receive(sender, package)$/;"	f	class:Communicator
+previousUnderscore	web_interface/js/underscore.js	/^  var previousUnderscore = root._;$/;"	v
+prototype.id	web_interface/js/class.js	/^    var id = klass.all.length;$/;"	f
+publish_address	lib/twitter_wrapper.rb	/^  def publish_address(ip_address, hashtag)$/;"	f	class:TwitterWrapper
+qa.K	web_interface/js/jquery-1.4.2.min.js	/^true;if(j=c.fragments[a[0]])if(j!==1)f=j}if(!f){f=b.createDocumentFragment();c.clean(a,b,f,d)}if(e)c.fragments[a[0]]=j?f:1;return{fragment:f,cacheable:e}}function K(a,b){var d={};c.each(va.concat.apply([],va.slice(0,b)),function(){d[this]=a});return d}function wa(a){return"scrollTo"in a&&a.document?a:a.nodeType===9?a.defaultView||a.parentWindow:false}var c=function(a,b){return new c.fn.init(a,b)},Ra=A.jQuery,Sa=A.$,s=A.document,T,Ta=\/^[^<]*(<[\\w\\W]+>)[^>]*$|^#([\\w-]+)$\/,Ua=\/^.[^:#\\[\\.,]*$\/,Va=\/\\S\/,$/;"	f
+qa.ra	web_interface/js/jquery-1.4.2.min.js	/^"&")}function qa(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ra(a,b){var d=0;b.each(function(){if(this.nodeName===(a[d]&&a[d].nodeName)){var f=c.data(a[d++]),e=c.data(this,f);if(f=f&&f.events){delete e.handle;e.events={};for(var j in f)for(var i in f[j])c.event.add(this,j,f[j][i],f[j][i].data)}}})}function sa(a,b,d){var f,e,j;b=b&&b[0]?b[0].ownerDocument||b[0]:s;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===s&&!ta.test(a[0])&&(c.support.checkClone||!ua.test(a[0]))){e=$/;"	f
+qa.sa	web_interface/js/jquery-1.4.2.min.js	/^"&")}function qa(a){return!a||!a.parentNode||a.parentNode.nodeType===11}function ra(a,b){var d=0;b.each(function(){if(this.nodeName===(a[d]&&a[d].nodeName)){var f=c.data(a[d++]),e=c.data(this,f);if(f=f&&f.events){delete e.handle;e.events={};for(var j in f)for(var i in f[j])c.event.add(this,j,f[j][i],f[j][i].data)}}})}function sa(a,b,d){var f,e,j;b=b&&b[0]?b[0].ownerDocument||b[0]:s;if(a.length===1&&typeof a[0]==="string"&&a[0].length<512&&b===s&&!ta.test(a[0])&&(c.support.checkClone||!ua.test(a[0]))){e=$/;"	f
+qa.wa	web_interface/js/jquery-1.4.2.min.js	/^true;if(j=c.fragments[a[0]])if(j!==1)f=j}if(!f){f=b.createDocumentFragment();c.clean(a,b,f,d)}if(e)c.fragments[a[0]]=j?f:1;return{fragment:f,cacheable:e}}function K(a,b){var d={};c.each(va.concat.apply([],va.slice(0,b)),function(){d[this]=a});return d}function wa(a){return"scrollTo"in a&&a.document?a:a.nodeType===9?a.defaultView||a.parentWindow:false}var c=function(a,b){return new c.fn.init(a,b)},Ra=A.jQuery,Sa=A.$,s=A.document,T,Ta=\/^[^<]*(<[\\w\\W]+>)[^>]*$|^#([\\w-]+)$\/,Ua=\/^.[^:#\\[\\.,]*$\/,Va=\/\\S\/,$/;"	f
+quickSort	web_interface/js/dracula_algorithms.js	/^function quickSort(arr) {$/;"	f
+random	web_interface/js/seedrandom.js	/^  math['random'] = function random() {  \/\/ Closure to return a random double:$/;"	f
+receive	lib/communicator.rb	/^    def receive(sender, package)$/;"	f	class:Communicator.UDP
+receive	lib/communicator.rb	/^    def receive(sender, package)$/;"	f	class:Communicator.Virtual
 receive	lib/translator.rb	/^    def receive(sender, raw_package)$/;"	f	class:Translator.Receiver
-register	lib/communicator.rb	/^  def self.register(communicator)$/;"	F	class:Communicator
-register_listener	lib/communicator.rb	/^  def register_listener(listener)$/;"	f	class:Communicator
-route_message	lib/translator.rb	/^      def route_message(parsed_message)$/;"	f	class:Translator.Receiver
+redraw	web_interface/js/algorithms.js	/^    var renderer = new Graph.Renderer.Raphael('canvas', g, width, height);$/;"	f
+redraw	web_interface/js/algorithms.js	/^var redraw;$/;"	v
+regexp	lib/twitter_wrapper.rb	/^    def regexp$/;"	f	class:TwitterWrapper
+register	lib/communicator.rb	/^    def self.register(communicator)$/;"	F	class:Communicator.Virtual
+register_listener	lib/communicator.rb	/^    def register_listener(listener)$/;"	f	class:Communicator.UDP
+register_listener	lib/communicator.rb	/^    def register_listener(listener)$/;"	f	class:Communicator.Virtual
+register_logger	lib/communicator.rb	/^    def self.register_logger(logger)$/;"	F	class:Communicator.Virtual
+res	web_interface/js/dracula_graffle.js	/^            var res = dis.length == 0 ? [0, 4] : d[Math.min.apply(Math, dis).toFixed(3)];$/;"	v
+return	web_interface/js/Curry-1.0.1.js	/^curry.args = function( args ){$/;"	c
+return	web_interface/js/dracula_algorithms.js	/^curry.args = function( args ){$/;"	c
+return	web_interface/js/underscore.js	/^    args = slice.call(arguments, 2);$/;"	f
+return.slice	web_interface/js/Curry-1.0.1.js	/^	return Array.prototype.slice.call(args);$/;"	m
+return.slice	web_interface/js/dracula_algorithms.js	/^	return Array.prototype.slice.call(args);$/;"	m
+reverse_lookup	lib/communicator.rb	/^    def self.reverse_lookup(bro)$/;"	F	class:Communicator.Virtual
+route_message	lib/translator.rb	/^      def route_message(parsed_message, sender)$/;"	f	class:Translator.Receiver
+scan_addresses	lib/twitter_wrapper.rb	/^  def scan_addresses(hashtag)$/;"	f	class:TwitterWrapper
+scan_twitter	lib/twitter_wrapper.rb	/^    def scan_twitter(hashtag)$/;"	f	class:TwitterWrapper
 scenario	spec/integration/communication_spec.rb	/^def scenario(*args, &block)$/;"	f
+scenario	spec/integration/propagation_spec.rb	/^def scenario(*args, &block)$/;"	f
+seedrandom	web_interface/js/seedrandom.js	/^math['seedrandom'] = function seedrandom(seed, use_entropy) {$/;"	f
+selectionSort	web_interface/js/dracula_algorithms.js	/^function selectionSort(arr) {$/;"	f
+send_message	lib/communicator/udp_sender.rb	/^  def self.send_message(message, address, port)$/;"	F	class:UDPSender
+send_message	lib/communicator/udp_sender.rb	/^  def send_message(message)$/;"	f	class:UDPSender
 send_message	lib/translator.rb	/^    def send_message(sender, message)$/;"	f	class:Translator.Sender
+simulator	watcher.rb	/^def simulator$/;"	f
+size	web_interface/js/underscore.js	/^    var size = 0, result = true;$/;"	v
+slice	web_interface/js/underscore.js	/^  var slice            = ArrayProto.slice,$/;"	v
 start_listening	lib/client.rb	/^  def start_listening$/;"	f	class:Client
-start_listening	lib/communicator.rb	/^  def start_listening$/;"	f	class:Communicator
-transmit	lib/communicator.rb	/^  def self.transmit(sender, address, package)$/;"	F	class:Communicator
-transmit	lib/communicator.rb	/^  def transmit(address, package)$/;"	f	class:Communicator
+start_listening	lib/communicator.rb	/^    def start_listening$/;"	f	class:Communicator.UDP
+start_listening	lib/communicator.rb	/^    def start_listening$/;"	f	class:Communicator.Virtual
+step	web_interface/js/dracula_algorithms.js	/^function step(comment, funct) {$/;"	f
+supernode?	lib/bro.rb	/^  def supernode?$/;"	f	class:Bro
+supernode?	lib/client.rb	/^  def supernode?$/;"	f	class:Client
+t.Graph.removeNode	web_interface/js/dracula_graph.js	/^    },$/;"	m
+t.Graph.snapShot	web_interface/js/dracula_graph.js	/^    },$/;"	m
+this.graph	web_interface/js/dracula_graph.js	/^        this.graph.render = function() {$/;"	m
+to_json	lib/bro.rb	/^  def to_json(*args)$/;"	f	class:Bro
+topological_sort	web_interface/js/dracula_algorithms.js	/^function topological_sort(g) {$/;"	f
+topological_sort_helper	web_interface/js/dracula_algorithms.js	/^function topological_sort_helper(g) {$/;"	f
+transmit	lib/communicator.rb	/^    def self.transmit(sender, address, package)$/;"	F	class:Communicator.Virtual
+transmit	lib/communicator.rb	/^    def transmit(address, package)$/;"	f	class:Communicator.Virtual
+transmit	lib/communicator.rb	/^    def transmit(package, address, port=BROTALK_PORT)$/;"	f	class:Communicator.UDP
 update_bros	lib/client.rb	/^  def update_bros(bros_table_update)$/;"	f	class:Client
+var.nano	web_interface/js/arbor.js	/^  \/*        etc.js *\/  var trace=function(msg){if(typeof(window)=="undefined"||!window.console){return}var len=arguments.length;var args=[];for(var i=0;i<len;i++){args.push("arguments["+i+"]")}eval("console.log("+args.join(",")+")")};var dirname=function(a){var b=a.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");b.pop();return"\/"+b.join("\/")};var basename=function(b){var c=b.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");var a=c.pop();if(a==""){return null}else{return a}};var _ordinalize_re=\/(\\d)(?=(\\d\\d\\d)+(?!\\d))\/g;var ordinalize=function(a){var b=""+a;if(a<11000){b=(""+a).replace(_ordinalize_re,"$1,")}else{if(a<1000000){b=Math.floor(a\/1000)+"k"}else{if(a<1000000000){b=(""+Math.floor(a\/1000)).replace(_ordinalize_re,"$1,")+"m"}}}return b};var nano=function(a,b){return a.replace(\/\\{([\\w\\-\\.]*)}\/g,function(f,c){var d=c.split("."),e=b[d.shift()];$.each(d,function(){if(e.hasOwnProperty(this)){e=e[this]}else{e=f}});return e})};var objcopy=function(a){if(a===undefined){return undefined}if(a===null){return null}if(a.parentNode){return a}switch(typeof a){case"string":return a.substring(0);break;case"number":return a+0;break;case"boolean":return a===true;break}var b=($.isArray(a))?[]:{};$.each(a,function(d,c){b[d]=objcopy(c)});return b};var objmerge=function(d,b){d=d||{};b=b||{};var c=objcopy(d);for(var a in b){c[a]=b[a]}return c};var objcmp=function(e,c,d){if(!e||!c){return e===c}if(typeof e!=typeof c){return false}if(typeof e!="object"){return e===c}else{if($.isArray(e)){if(!($.isArray(c))){return false}if(e.length!=c.length){return false}}else{var h=[];for(var f in e){if(e.hasOwnProperty(f)){h.push(f)}}var g=[];for(var f in c){if(c.hasOwnProperty(f)){g.push(f)}}if(!d){h.sort();g.sort()}if(h.join(",")!==g.join(",")){return false}}var i=true;$.each(e,function(a){var b=objcmp(e[a],c[a]);i=i&&b;if(!i){return false}});return i}};var objkeys=function(b){var a=[];$.each(b,function(d,c){if(b.hasOwnProperty(d)){a.push(d)}});return a};var objcontains=function(c){if(!c||typeof c!="object"){return false}for(var b=1,a=arguments.length;b<a;b++){if(c.hasOwnProperty(arguments[b])){return true}}return false};var uniq=function(b){var a=b.length;var d={};for(var c=0;c<a;c++){d[b[c]]=true}return objkeys(d)};var arbor_path=function(){var a=$("script").map(function(b){var c=$(this).attr("src");if(!c){return}if(c.match(\/arbor[^\\\/\\.]*.js|dev.js\/)){return c.match(\/.*\\\/\/)||"\/"}});if(a.length>0){return a[0]}else{return null}};$/;"	f
+var.norm	web_interface/js/dracula_graffle.js	/^                var norm = function(x,l){return (-x*(l||5)\/mag);};$/;"	f
+var.objcontains	web_interface/js/arbor.js	/^  \/*        etc.js *\/  var trace=function(msg){if(typeof(window)=="undefined"||!window.console){return}var len=arguments.length;var args=[];for(var i=0;i<len;i++){args.push("arguments["+i+"]")}eval("console.log("+args.join(",")+")")};var dirname=function(a){var b=a.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");b.pop();return"\/"+b.join("\/")};var basename=function(b){var c=b.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");var a=c.pop();if(a==""){return null}else{return a}};var _ordinalize_re=\/(\\d)(?=(\\d\\d\\d)+(?!\\d))\/g;var ordinalize=function(a){var b=""+a;if(a<11000){b=(""+a).replace(_ordinalize_re,"$1,")}else{if(a<1000000){b=Math.floor(a\/1000)+"k"}else{if(a<1000000000){b=(""+Math.floor(a\/1000)).replace(_ordinalize_re,"$1,")+"m"}}}return b};var nano=function(a,b){return a.replace(\/\\{([\\w\\-\\.]*)}\/g,function(f,c){var d=c.split("."),e=b[d.shift()];$.each(d,function(){if(e.hasOwnProperty(this)){e=e[this]}else{e=f}});return e})};var objcopy=function(a){if(a===undefined){return undefined}if(a===null){return null}if(a.parentNode){return a}switch(typeof a){case"string":return a.substring(0);break;case"number":return a+0;break;case"boolean":return a===true;break}var b=($.isArray(a))?[]:{};$.each(a,function(d,c){b[d]=objcopy(c)});return b};var objmerge=function(d,b){d=d||{};b=b||{};var c=objcopy(d);for(var a in b){c[a]=b[a]}return c};var objcmp=function(e,c,d){if(!e||!c){return e===c}if(typeof e!=typeof c){return false}if(typeof e!="object"){return e===c}else{if($.isArray(e)){if(!($.isArray(c))){return false}if(e.length!=c.length){return false}}else{var h=[];for(var f in e){if(e.hasOwnProperty(f)){h.push(f)}}var g=[];for(var f in c){if(c.hasOwnProperty(f)){g.push(f)}}if(!d){h.sort();g.sort()}if(h.join(",")!==g.join(",")){return false}}var i=true;$.each(e,function(a){var b=objcmp(e[a],c[a]);i=i&&b;if(!i){return false}});return i}};var objkeys=function(b){var a=[];$.each(b,function(d,c){if(b.hasOwnProperty(d)){a.push(d)}});return a};var objcontains=function(c){if(!c||typeof c!="object"){return false}for(var b=1,a=arguments.length;b<a;b++){if(c.hasOwnProperty(arguments[b])){return true}}return false};var uniq=function(b){var a=b.length;var d={};for(var c=0;c<a;c++){d[b[c]]=true}return objkeys(d)};var arbor_path=function(){var a=$("script").map(function(b){var c=$(this).attr("src");if(!c){return}if(c.match(\/arbor[^\\\/\\.]*.js|dev.js\/)){return c.match(\/.*\\\/\/)||"\/"}});if(a.length>0){return a[0]}else{return null}};$/;"	f
+var.objcopy	web_interface/js/arbor.js	/^  \/*        etc.js *\/  var trace=function(msg){if(typeof(window)=="undefined"||!window.console){return}var len=arguments.length;var args=[];for(var i=0;i<len;i++){args.push("arguments["+i+"]")}eval("console.log("+args.join(",")+")")};var dirname=function(a){var b=a.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");b.pop();return"\/"+b.join("\/")};var basename=function(b){var c=b.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");var a=c.pop();if(a==""){return null}else{return a}};var _ordinalize_re=\/(\\d)(?=(\\d\\d\\d)+(?!\\d))\/g;var ordinalize=function(a){var b=""+a;if(a<11000){b=(""+a).replace(_ordinalize_re,"$1,")}else{if(a<1000000){b=Math.floor(a\/1000)+"k"}else{if(a<1000000000){b=(""+Math.floor(a\/1000)).replace(_ordinalize_re,"$1,")+"m"}}}return b};var nano=function(a,b){return a.replace(\/\\{([\\w\\-\\.]*)}\/g,function(f,c){var d=c.split("."),e=b[d.shift()];$.each(d,function(){if(e.hasOwnProperty(this)){e=e[this]}else{e=f}});return e})};var objcopy=function(a){if(a===undefined){return undefined}if(a===null){return null}if(a.parentNode){return a}switch(typeof a){case"string":return a.substring(0);break;case"number":return a+0;break;case"boolean":return a===true;break}var b=($.isArray(a))?[]:{};$.each(a,function(d,c){b[d]=objcopy(c)});return b};var objmerge=function(d,b){d=d||{};b=b||{};var c=objcopy(d);for(var a in b){c[a]=b[a]}return c};var objcmp=function(e,c,d){if(!e||!c){return e===c}if(typeof e!=typeof c){return false}if(typeof e!="object"){return e===c}else{if($.isArray(e)){if(!($.isArray(c))){return false}if(e.length!=c.length){return false}}else{var h=[];for(var f in e){if(e.hasOwnProperty(f)){h.push(f)}}var g=[];for(var f in c){if(c.hasOwnProperty(f)){g.push(f)}}if(!d){h.sort();g.sort()}if(h.join(",")!==g.join(",")){return false}}var i=true;$.each(e,function(a){var b=objcmp(e[a],c[a]);i=i&&b;if(!i){return false}});return i}};var objkeys=function(b){var a=[];$.each(b,function(d,c){if(b.hasOwnProperty(d)){a.push(d)}});return a};var objcontains=function(c){if(!c||typeof c!="object"){return false}for(var b=1,a=arguments.length;b<a;b++){if(c.hasOwnProperty(arguments[b])){return true}}return false};var uniq=function(b){var a=b.length;var d={};for(var c=0;c<a;c++){d[b[c]]=true}return objkeys(d)};var arbor_path=function(){var a=$("script").map(function(b){var c=$(this).attr("src");if(!c){return}if(c.match(\/arbor[^\\\/\\.]*.js|dev.js\/)){return c.match(\/.*\\\/\/)||"\/"}});if(a.length>0){return a[0]}else{return null}};$/;"	f
+var.objkeys	web_interface/js/arbor.js	/^  \/*        etc.js *\/  var trace=function(msg){if(typeof(window)=="undefined"||!window.console){return}var len=arguments.length;var args=[];for(var i=0;i<len;i++){args.push("arguments["+i+"]")}eval("console.log("+args.join(",")+")")};var dirname=function(a){var b=a.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");b.pop();return"\/"+b.join("\/")};var basename=function(b){var c=b.replace(\/^\\\/?(.*?)\\\/?$\/,"$1").split("\/");var a=c.pop();if(a==""){return null}else{return a}};var _ordinalize_re=\/(\\d)(?=(\\d\\d\\d)+(?!\\d))\/g;var ordinalize=function(a){var b=""+a;if(a<11000){b=(""+a).replace(_ordinalize_re,"$1,")}else{if(a<1000000){b=Math.floor(a\/1000)+"k"}else{if(a<1000000000){b=(""+Math.floor(a\/1000)).replace(_ordinalize_re,"$1,")+"m"}}}return b};var nano=function(a,b){return a.replace(\/\\{([\\w\\-\\.]*)}\/g,function(f,c){var d=c.split("."),e=b[d.shift()];$.each(d,function(){if(e.hasOwnProperty(this)){e=e[this]}else{e=f}});return e})};var objcopy=function(a){if(a===undefined){return undefined}if(a===null){return null}if(a.parentNode){return a}switch(typeof a){case"string":return a.substring(0);break;case"number":return a+0;break;case"boolean":return a===true;break}var b=($.isArray(a))?[]:{};$.each(a,function(d,c){b[d]=objcopy(c)});return b};var objmerge=function(d,b){d=d||{};b=b||{};var c=objcopy(d);for(var a in b){c[a]=b[a]}return c};var objcmp=function(e,c,d){if(!e||!c){return e===c}if(typeof e!=typeof c){return false}if(typeof e!="object"){return e===c}else{if($.isArray(e)){if(!($.isArray(c))){return false}if(e.length!=c.length){return false}}else{var h=[];for(var f in e){if(e.hasOwnProperty(f)){h.push(f)}}var g=[];for(var f in c){if(c.hasOwnProperty(f)){g.push(f)}}if(!d){h.sort();g.sort()}if(h.join(",")!==g.join(",")){return false}}var i=true;$.each(e,function(a){var b=objcmp(e[a],c[a]);i=i&&b;if(!i){return false}});return i}};var objkeys=function(b){var a=[];$.each(b,function(d,c){if(b.hasOwnProperty(d)){a.push(d)}});return a};var objcontains=function(c){if(!c||typeof c!="object"){return false}for(var b=1,a=arguments.length;b<a;b++){if(c.hasOwnProperty(arguments[b])){return true}}return false};var uniq=function(b){var a=b.length;var d={};for(var c=0;c<a;c++){d[b[c]]=true}return objkeys(d)};var arbor_path=function(){var a=$("script").map(function(b){var c=$(this).attr("src");if(!c){return}if(c.match(\/arbor[^\\\/\\.]*.js|dev.js\/)){return c.match(\/.*\\\/\/)||"\/"}});if(a.length>0){return a[0]}else{return null}};$/;"	f
+var.opoint.x	web_interface/js/dracula_graph.js	/^            var opoint = { x: oBBox.x + oBBox.width \/ 2, y: oBBox.y + oBBox.height \/ 2};$/;"	p
+wa.c	web_interface/js/jquery-1.4.2.min.js	/^true;if(j=c.fragments[a[0]])if(j!==1)f=j}if(!f){f=b.createDocumentFragment();c.clean(a,b,f,d)}if(e)c.fragments[a[0]]=j?f:1;return{fragment:f,cacheable:e}}function K(a,b){var d={};c.each(va.concat.apply([],va.slice(0,b)),function(){d[this]=a});return d}function wa(a){return"scrollTo"in a&&a.document?a:a.nodeType===9?a.defaultView||a.parentWindow:false}var c=function(a,b){return new c.fn.init(a,b)},Ra=A.jQuery,Sa=A.$,s=A.document,T,Ta=\/^[^<]*(<[\\w\\W]+>)[^>]*$|^#([\\w-]+)$\/,Ua=\/^.[^:#\\[\\.,]*$\/,Va=\/\\S\/,$/;"	f
+window.onload	web_interface/js/algorithms.js	/^var redraw;$/;"	f
+x1	web_interface/js/dracula_graffle.js	/^            var x1 = p[res[0]].x,$/;"	v

@@ -2,16 +2,16 @@ class UDPSender
   attr_accessor :socket
 
   def initialize(address, port)
-    socket = UDPSocket.new
-    socket.connect(address, port)
+    @socket = UDPSocket.new
+    @socket.connect(address, port)
   end
 
   def send_message(message)
-    socket.send("got your message bro!", 0)
+    @socket.send(message, 0)
   end
 
   def cleanup!
-    socket.close
+    @socket.close
   end
 
   def self.send_message(message, address, port)

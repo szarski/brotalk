@@ -1,6 +1,6 @@
 require "socket"
-require "lib/communicator/udp_listener"
-require "lib/communicator/udp_sender"
+require File.join(File.dirname(__FILE__), "./communicator/udp_listener.rb")
+require File.join(File.dirname(__FILE__), "./communicator/udp_sender.rb")
 
 module Communicator
   BROTALK_PORT=8899
@@ -9,6 +9,7 @@ module Communicator
     attr_reader :listeners, :udp_listener, :udp_sender
 
     def initialize
+      @listeners = []
     end
 
     def register_listener(listener)
@@ -17,8 +18,12 @@ module Communicator
 
     def start_listening
       Thread.new do
-        udp_listener = UDPListener.new(address, port, self)
-        udp_listener.listen
+        begin
+          udp_listener = UDPListener.new(self, "0.0.0.0", BROTALK_PORT)
+          udp_listener.listen
+        rescue => e
+          puts e.to_s
+        end
       end
     end
 
@@ -105,6 +110,6 @@ module Communicator
     end
   end
 
-  DEFAULT_CLASS = Virtual
+  DEFAULT_CLASS = UDP
 
 end

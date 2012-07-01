@@ -43,7 +43,7 @@ module Translator
 
     def greet(sender, bros_table, supernode)
       greet_json = build_message(:greeting, {:bros_table => bros_table, :supernode => supernode})
-      @communicator.transmit(sender, greet_json)
+      @communicator.transmit(greet_json, sender)
     end
 
     def send_message(sender, message)

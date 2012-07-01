@@ -54,6 +54,24 @@ describe MessageBuilder do
       end
     end
 
+    context "when message_type :ping" do
+      let(:message_type) {:ping}
+
+      it "sets message to 'ping'" do
+        @message_builder.prepare_message(message_type)["message"].
+          should eq("ping")
+      end
+    end
+
+    context "when message_type :pong" do
+      let(:message_type) {:pong}
+
+      it "sets message to 'pong'" do
+        @message_builder.prepare_message(message_type)["message"].
+          should eq("pong")
+      end
+    end
+
     context "when message_type unknown" do
       let(:message_type) {:unknown_type}
       let(:message_body) {"Hello"}

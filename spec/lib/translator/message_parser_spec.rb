@@ -31,6 +31,24 @@ describe MessageParser do
       end
     end
 
+    context "when ping" do
+      let(:raw_message) {"{\"message\":\"ping\""}
+      let(:parsed_json) {{"message" => "ping"}}
+
+      it "sets :message_type => :ping" do
+        @message_parser.parse_message(raw_message)[:message_type].should eq(:ping)
+      end
+    end
+
+    context "when pong" do
+      let(:raw_message) {"{\"message\":\"pong\""}
+      let(:parsed_json) {{"message" => "pong"}}
+
+      it "sets :message_type => :pong" do
+        @message_parser.parse_message(raw_message)[:message_type].should eq(:pong)
+      end
+    end
+
     context "when regular message" do
       let(:raw_message) { "{\"message\":\"hello\"}" }
       let(:parsed_json) {{"message" => "hello"}}

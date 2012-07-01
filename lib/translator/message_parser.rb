@@ -5,6 +5,10 @@ module MessageParser
     parsed_message = self.parse_json(raw_message)
     if parsed_message["message"] == "ay bro"
       parsed_message[:message_type] = :greetings
+    elsif parsed_message["message"] == "ping"
+      parsed_message[:message_type] = :ping
+    elsif parsed_message["message"] == "pong"
+      parsed_message[:message_type] = :pong
     elsif parsed_message["message"].nil?
       parsed_message[:message_type] = :broken
     else

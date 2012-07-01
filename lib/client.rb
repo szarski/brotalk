@@ -1,6 +1,8 @@
 class Client
   # oneself may be counted in here
   MAX_REGULAR_NODES = 2
+  ZOMBIE_KILL_LIMIT = 10
+  ZOMBIE_CHECK_LIMIT = 5
   attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table, :thread
 
   def initialize
@@ -11,11 +13,23 @@ class Client
     @translator_sender = Translator::Sender.new(communicator)
     @supernode = false
     c = self
-    @thread = Thread.new {loop {sleep(3); c.periodically}}
+    @thread = Thread.new do 
+      loop do
+        begin
+        sleep(3)
+        c.periodically
+        rescue => e
+          puts e.to_s
+          puts e.backtrace
+        end
+      end
+    end
   end
 
   def periodically
+    puts "periodically"
     clear_bro_table
+    ping_bros
   end
 
   def start_listening
@@ -39,6 +53,10 @@ class Client
 
   def greet address
     translator_sender.greet address, bros_table, supernode?
+  end
+
+  def pong(sender)
+    translator_sender.pong(sender)
   end
 
   def supernode?
@@ -68,13 +86,31 @@ class Client
     end
   end
 
+  def update_last_activity!(sender_address)
+    @bros_table.each_with_index do |entry, index|
+      if entry.address == sender_address 
+        @bros_table[index].last_activity = Time.now.to_i
+      end
+    end
+  end
+
   private
-    def update_last_activity!(sender_address)
-      @bros_table.each_with_index do |entry, index|
-        if entry.address == sender_address 
-          @bros_table[index].last_activity = Time.now.to_i
+    def ping_bros
+      @bros_table.each_with_index do |bro, index|
+        last_activity_relatvie = Time.now.to_i - bro.last_activity
+        puts last_activity_relatvie
+        if last_activity_relatvie > ZOMBIE_KILL_LIMIT
+          puts "deleting bro"
+          @bros_table.delete_at(index)
+        elsif last_activity_relatvie > ZOMBIE_CHECK_LIMIT
+          puts "pinging bro"
+          is_alive?(bro)
         end
       end
+    end
+
+    def is_alive?(bro)
+      translator_sender.ping(bro.address)
     end
     #EOF private
 end

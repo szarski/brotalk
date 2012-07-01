@@ -111,4 +111,40 @@ describe Translator::Sender do
       subject.send_message(sender_mock, message)
     end
   end
+
+  describe "#ping" do
+    let(:built_json) { "{\"message\":\"ping\"}" }
+
+    before(:each) do
+      subject.stub(:build_message).and_return(built_json)
+    end
+
+    it "invokes #build_message with message_type :ping and message" do
+      subject.should_receive(:build_message).with(:ping)
+      subject.ping(sender_mock)
+    end
+
+    it "invokes Communicator#transmit with address and proper json" do
+      communicator_mock.should_receive(:transmit).with(built_json, sender_mock)
+      subject.ping(sender_mock)
+    end
+  end
+
+  describe "#pong" do
+    let(:built_json) { "{\"message\":\"ping\"}" }
+
+    before(:each) do
+      subject.stub(:build_message).and_return(built_json)
+    end
+
+    it "invokes #build_message with message_type :pong and message" do
+      subject.should_receive(:build_message).with(:pong)
+      subject.pong(sender_mock)
+    end
+
+    it "invokes Communicator#transmit with address and proper json" do
+      communicator_mock.should_receive(:transmit).with(built_json, sender_mock)
+      subject.pong(sender_mock)
+    end
+  end
 end

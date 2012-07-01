@@ -16,8 +16,8 @@ class Client
     @thread = Thread.new do 
       loop do
         begin
-        sleep(3)
-        c.periodically
+          sleep(3)
+          c.periodically
         rescue => e
           puts e.to_s
           puts e.backtrace

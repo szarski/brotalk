@@ -24,7 +24,9 @@ module Translator
       def route_message(parsed_message, sender)
         case parsed_message[:message_type]
         when :greetings
-          @client.update_bros parse_bros(parsed_message["bros_table"]) + [Bro.new(sender, (parsed_message["supernode"].to_i > 0))]
+          bros_table = parse_bros(parsed_message["bros_table"]) +
+            [Bro.new(sender, (parsed_message["supernode"].to_i > 0))]
+          @client.update_bros(bros_table, sender)
         when :regular
           @client.message parsed_message["message"]
         end

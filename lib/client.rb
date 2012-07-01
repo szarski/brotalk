@@ -22,10 +22,11 @@ class Client
     communicator.start_listening
   end
 
-  def update_bros(bros_table_update)
+  def update_bros(bros_table_update, sender_address)
     new_bros_table = (@bros_table + bros_table_update).uniq
     new_entries = (new_bros_table - @bros_table)
     @bros_table = new_bros_table
+    update_last_activity!(sender_address)
     ensure_supernodes!
     new_entries.each do |bro|
       greet_bro bro
@@ -66,4 +67,17 @@ class Client
       end
     end
   end
+
+  private
+    def update_last_activity!(sender_address)
+      @bros_table.map! do |entry|
+        if entry.address == sender_address 
+          entry.last_activity = Time.now.to_i
+          entry
+        else
+          entry
+        end
+      end
+    end
+    #EOF private
 end

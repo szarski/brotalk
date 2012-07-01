@@ -1,5 +1,6 @@
 class Bro
   attr_reader :address
+  attr_accessor :last_activity
 
   def initialize(address, supernode)
     @address = address

@@ -31,7 +31,7 @@ describe Translator::Receiver do
 
       it "updates bros table with the result of #parse_bros" do
         parsed_bros.stub(:+).with {|bro| bro.first.address == sender_mock}.and_return(all_bros)
-        client_mock.should_receive(:update_bros).with(all_bros)
+        client_mock.should_receive(:update_bros).with(all_bros, sender_mock)
         client_mock.stub(:greet_bro)
         subject.receive sender_mock, {:message => 'ay bro', :bros_table => bros_mock}.to_json
       end
@@ -61,6 +61,7 @@ end
 describe Translator::Sender do
   let(:sender_mock) { double("sender").as_null_object }
   let(:communicator_mock) { double("communicator").as_null_object }
+  let(:supernode_mock) { double("supernode").as_null_object }
 
   subject { Translator::Sender.new(communicator_mock) }
 
@@ -79,13 +80,16 @@ describe Translator::Sender do
     end
 
     it "invokes #build_message with message_type :greeting and bros_table" do
-      subject.should_receive(:build_message).with(:greeting, bros_table_mock)
-      subject.greet(sender_mock, bros_table_mock)
+      subject.should_receive(:build_message).with(:greeting, {
+        :bros_table => bros_table_mock,
+        :supernode => supernode_mock
+      })
+      subject.greet(sender_mock, bros_table_mock, supernode_mock)
     end
 
     it "invokes Communicator#transmit with address and proper json" do
-      communicator_mock.should_receive(:transmit).with(sender_mock, built_json)
-      subject.greet(sender_mock, bros_table_mock)
+      communicator_mock.should_receive(:transmit).with(built_json, sender_mock)
+      subject.greet(sender_mock, bros_table_mock, supernode_mock)
     end
   end
 
@@ -103,7 +107,7 @@ describe Translator::Sender do
     end
 
     it "invokes Communicator#transmit with address and proper json" do
-      communicator_mock.should_receive(:transmit).with(sender_mock, built_json)
+      communicator_mock.should_receive(:transmit).with(built_json, sender_mock)
       subject.send_message(sender_mock, message)
     end
   end

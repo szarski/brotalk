@@ -13,10 +13,14 @@ Controller = Class({
 
     var that = this;
     $(this.viewport).mousedown(function(e){
+      e.preventDefault();
       var pos = $(this).offset();
       var p = {x:e.pageX-pos.left, y:e.pageY-pos.top}
       selected = nearest = dragged = that.sys.nearest(p);
-      that.node_clicked(selected.node);
+      if (e.which === 3)
+        that.node_rightclicked(selected.node);
+      else
+        that.node_clicked(selected.node);
       return false;
     });
 
@@ -26,6 +30,11 @@ Controller = Class({
 
   selected_node_1: null,
   selected_node_2: null,
+
+  node_rightclicked: function(node) {
+    console.log(node.name);
+    this.remove(node.name);
+  },
 
   node_clicked: function(node) {
     var old_color = node.data.color;
@@ -81,6 +90,10 @@ Controller = Class({
         this.sys.addEdge(y, x, {type: 'ident-arrow',color: 'black', directed: 1});
       }.bind(this));
     }.bind(this));
+  },
+
+  remove: function(node) {
+    $.get('/clients/'+node+'/remove');
   },
 
   greet: function() {

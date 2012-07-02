@@ -68,7 +68,11 @@ module Communicator
     end
 
     def transmit(package, address)
-      self.class.transmit(self, address, package)
+      begin
+        self.class.transmit(self, address, package)
+      rescue Exception => e
+        puts e
+      end
     end
 
     def self.reverse_lookup(bro)

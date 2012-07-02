@@ -5,12 +5,14 @@ class Simulator
   attr_reader :logs
 
   def initialize
+    Client.instance_variable_set("@zombie_check_limit", 30)
+    Client.instance_variable_set("@zombie_kill_limit", 60)
     @logs = []
     Communicator::Virtual.register_logger(self)
     20.times do
-      c = Client.new
+      c = Client.new(false)
       c.start_listening
-      sleep rand * 1
+      sleep((rand * 6).round)
     end
   end
 

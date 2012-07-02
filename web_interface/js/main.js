@@ -32,7 +32,6 @@ Controller = Class({
   selected_node_2: null,
 
   node_rightclicked: function(node) {
-    console.log(node.name);
     this.remove(node.name);
   },
 

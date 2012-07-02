@@ -44,6 +44,9 @@ Controller = Class({
   
   update_selected_nodes: function() {
     this.display.text('selected nodes: "'+this.selected_node_1+'", "'+this.selected_node_2+'"')
+    if (this.selected_node_1 && this.selected_node_2) {
+      this.greet();
+    }
   },
 
   load_clients: function() {

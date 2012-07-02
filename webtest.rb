@@ -6,7 +6,7 @@ class Simulator
 
   def initialize
     @logs = []
-    Communicator::DEFAULT_CLASS.register_logger(self)
+    Communicator::Virtual.register_logger(self)
     20.times do
       c = Client.new
       c.start_listening
@@ -19,7 +19,7 @@ class Simulator
   end
 
   def listeners
-    Communicator::DEFAULT_CLASS.listeners
+    Communicator::Virtual.listeners
   end
 
   def greet(sender, recipient)

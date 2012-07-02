@@ -5,9 +5,9 @@ class Client
   ZOMBIE_CHECK_LIMIT = 5
   attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table, :thread
 
-  def initialize
+  def initialize(real=false)
     @bros_table = []
-    @communicator = Communicator::DEFAULT_CLASS.new
+    @communicator = (!real ? Communicator::Virtual : Communicator::UDP).new
     @translator_receiver = Translator::Receiver.new(self)
     @communicator.register_listener translator_receiver
     @translator_sender = Translator::Sender.new(communicator)

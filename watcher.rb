@@ -32,8 +32,12 @@ get '/connections.json' do
   hashes.to_json
 end
 
+get '/clients/:sender_address/remove' do
+  simulator.remove(params[:sender_address])
+  "ok"
+end
+
 get '/clients/:sender_address/greet/:receiver_address' do
-  #puts(params[:sender_address].inspect, params[:receiver_address].inspect)
   simulator.greet(params[:sender_address], params[:receiver_address])
   "ok"
 end

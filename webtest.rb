@@ -28,6 +28,10 @@ class Simulator
     listeners[sender].listeners.first.client.greet recipient
   end
 
+  def remove(address)
+    Communicator::Virtual.listeners.delete address
+  end
+
   def messages
   end
 end

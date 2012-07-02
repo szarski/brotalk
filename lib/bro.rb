@@ -13,9 +13,11 @@ class Bro
 
   def self.from_json(table)
     table.map do |b|
-      raise "incorrect Bro json description: #{b.inspect}" unless b =~ /[^%]+%[01]/
-      a, s = b.split('%')
-      self.new a, (s.to_i > 0)
+      raise "incorrect Bro json description: #{b.inspect}" unless b =~ /[^%]+%[01]%[0-9]+/
+      a, s, t = b.split('%')
+      b = self.new a, (s.to_i > 0)
+      b.last_activity = t.to_i
+      b
     end
   end
 
@@ -36,7 +38,7 @@ class Bro
   end
 
   def to_json(*args)
-    "\"#{address}%#{supernode? ? 1 : 0}\""
+    "\"#{address}%#{supernode? ? 1 : 0}%#{last_activity}\""
   end
 
   def <=>(bro)

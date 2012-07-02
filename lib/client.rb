@@ -43,10 +43,15 @@ class Client
   end
 
   def update_bros(bros_table_update, sender_address)
-    new_bros_table = (@bros_table + bros_table_update).uniq
-    new_entries = (new_bros_table - @bros_table)
+    #old_bros_table = @bros_table
+    new_bros_table = (@bros_table + bros_table_update)
     @bros_table = new_bros_table
-    update_last_activity!(sender_address)
+    #update_last_activity!(sender_address)
+    new_bros_table.each do |b|
+      new_bros_table = new_bros_table.delete_if {|b2| b2 == b and b.last_activity > b2.last_activity}
+    end
+    new_entries = (new_bros_table.reject {|b| @bros_table.map(&:address).include?(b.address)})
+    @bros_table = new_bros_table
     ensure_supernodes!
     new_entries.each do |bro|
       greet_bro bro

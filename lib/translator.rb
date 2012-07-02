@@ -24,8 +24,10 @@ module Translator
       def route_message(parsed_message, sender)
         case parsed_message[:message_type]
         when :greetings
+          sender_bro = Bro.new(sender, (parsed_message["supernode"].to_i > 0))
+          sender_bro.last_activity = Time.now.to_i
           bros_table = parse_bros(parsed_message["bros_table"]) +
-            [Bro.new(sender, (parsed_message["supernode"].to_i > 0))]
+            [sender_bro]
           @client.update_bros(bros_table, sender)
         when :ping
           @client.pong(sender)

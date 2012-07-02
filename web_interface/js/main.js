@@ -1,4 +1,6 @@
 Controller = Class({
+  nodes: {},
+
   initialize: function(viewport, log_container, display, greet_button) {
     this.viewport = viewport;
     this.sys = arbor.ParticleSystem(10000, 10,1);
@@ -62,11 +64,23 @@ Controller = Class({
   },
 
   receive_load_clients: function(data) {
-    _.each(JSON.parse(data), function(client){
+    var clients = JSON.parse(data);
+    var existing_addresses = _.map(clients, function(c){return c['address']});
+    _.each(_.keys(this.nodes), function(address) {
+      if (!_.include(existing_addresses, address)) {
+        var node = this.nodes[address];
+        _.each(this.sys.getEdgesTo(node), function(edge){
+          this.sys.pruneEdge(edge);
+        }.bind(this));
+        this.sys.pruneNode(node);
+        delete this.nodes[address];
+      }
+    }.bind(this));
+    _.each(clients, function(client){
       if (client.supernode)
-        this.sys.addNode(client['address'],{'color':'#CFF','shape':'dot','label':client['address']});
+        this.nodes[client['address']] = this.sys.addNode(client['address'],{'color':'#CFF','shape':'dot','label':client['address']});
       else
-        this.sys.addNode(client['address'],{'color':'#CCC','shape':'dot','label':client['address']});
+        this.nodes[client['address']] = this.sys.addNode(client['address'],{'color':'#CCC','shape':'dot','label':client['address']});
     }.bind(this));
   },
 
@@ -80,7 +94,7 @@ Controller = Class({
       var ys = description[1]
       var node = this.sys.getNode(x);
       if (node) {
-        _.each(this.sys.getEdgesFrom(node), function(edge){
+        _.each(this.sys.getEdgesTo(node), function(edge){
           if (!_.include(ys, edge.source.name))
             this.sys.pruneEdge(edge);
         }.bind(this));

@@ -1,8 +1,6 @@
 class Client
   # oneself may be counted in here
   MAX_REGULAR_NODES = 2
-  ZOMBIE_KILL_LIMIT = 10
-  ZOMBIE_CHECK_LIMIT = 5
   attr_reader :communicator, :translator_receiver, :translator_sender, :bros_table, :thread
 
   def initialize(real=false)
@@ -24,6 +22,15 @@ class Client
         end
       end
     end
+  end
+
+
+  def self.zombie_kill_limit
+    @zombie_kill_limit || 10
+  end
+
+  def self.zombie_check_limit
+    @zombie_check_limit || 5
   end
 
   def periodically
@@ -97,9 +104,9 @@ class Client
     def ping_bros
       @bros_table.each_with_index do |bro, index|
         last_activity_relatvie = Time.now.to_i - bro.last_activity
-        if last_activity_relatvie > ZOMBIE_KILL_LIMIT
+        if last_activity_relatvie > self.class.zombie_kill_limit
           @bros_table.delete_at(index)
-        elsif last_activity_relatvie > ZOMBIE_CHECK_LIMIT
+        elsif last_activity_relatvie > self.class.zombie_check_limit
           is_alive?(bro)
         end
       end

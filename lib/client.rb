@@ -24,6 +24,10 @@ class Client
     end
   end
 
+  def kill!
+    @thread.kill
+    @communicator.stop_listening
+  end
 
   def self.zombie_kill_limit
     @zombie_kill_limit || 10

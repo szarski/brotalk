@@ -48,11 +48,11 @@ class Client
 
   def update_bros(bros_table_update, sender_address)
     #old_bros_table = @bros_table
-    new_bros_table = (@bros_table + bros_table_update)
+    new_bros_table = (@bros_table + bros_table_update).clone
     #update_last_activity!(sender_address)
-    new_bros_table.each do |b|
-      new_bros_table = new_bros_table.delete_if {|b2| b2 == b and b.last_activity > b2.last_activity}
-    end
+    bros_grouped_by_address = new_bros_table.inject({}) {|bros,bro| bros[bro.address] ||= []; bros[bro.address] << bro;bros}
+    new_bros_table = bros_grouped_by_address.collect {|address,bros| bros.sort{|a,b| a.last_activity<=>b.last_activity}.last}
+    puts new_bros_table.map(&:address).inspect
     new_entries = (new_bros_table.reject {|b| @bros_table.map(&:address).include?(b.address)})
     @bros_table = new_bros_table
     ensure_supernodes!

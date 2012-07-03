@@ -17,7 +17,7 @@ module Communicator
     end
 
     def start_listening
-      Thread.new do
+      @thread = Thread.new do
         begin
           udp_listener = UDPListener.new(self, "0.0.0.0", BROTALK_PORT)
           udp_listener.listen
@@ -25,6 +25,10 @@ module Communicator
           puts e.to_s
         end
       end
+    end
+
+    def stop_listening
+      @thread.kill
     end
 
     def transmit(package, address, port=BROTALK_PORT)
@@ -55,8 +59,16 @@ module Communicator
       @listeners[ip] = communicator
     end
 
+    def self.unregister(communicator)
+      @listeners.delete_if {|address, c| c==communicator}
+    end
+
     def start_listening
       self.class.register self
+    end
+
+    def stop_listening
+      self.class.unregister self
     end
 
     def initialize

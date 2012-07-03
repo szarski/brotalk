@@ -7,11 +7,9 @@ Controller = Class({
     this.sys.parameters({gravity:true});
     this.sys.renderer = Renderer(viewport) ;
     this.log_container = log_container;
-    setInterval(function() {
-      this.load_logs();
-      this.load_clients();
-      this.load_connections();
-    }.bind(this), 1000);
+    this.load_logs();
+    this.load_clients();
+    this.load_connections();
 
     var that = this;
     $(this.viewport).mousedown(function(e){
@@ -60,7 +58,7 @@ Controller = Class({
   },
 
   load_clients: function() {
-    $.get('/clients.json', this.receive_load_clients.bind(this));
+    $.get('/clients.json', this.receive_load_clients.bind(this)).complete(function(){setTimeout(this.load_clients.bind(this), 2000)}.bind(this));
   },
 
   receive_load_clients: function(data) {
@@ -85,7 +83,7 @@ Controller = Class({
   },
 
   load_connections: function() {
-    $.get('/connections.json', this.load_connections_receive.bind(this));
+    $.get('/connections.json', this.load_connections_receive.bind(this)).complete(function(){setTimeout(this.load_connections.bind(this), 2000)}.bind(this));
   },
 
   load_connections_receive: function(data) {
@@ -115,13 +113,13 @@ Controller = Class({
   },
 
   load_logs: function() {
-    $.get('/logs.json', this.load_logs_receive.bind(this));
+    $.get('/logs.json', this.load_logs_receive.bind(this)).complete(function(){setTimeout(this.load_logs.bind(this), 2000)}.bind(this));
   },
 
   load_logs_receive: function(data) {
     var c = $(this.log_container);
     var r = '';
-    _.each(JSON.parse(data).reverse(), function(x) {
+    _.each(_.first(JSON.parse(data).reverse(),1000), function(x) {
       r += '<li>'+x+'</li>';
     });
     c.html(r);
@@ -130,6 +128,4 @@ Controller = Class({
 
 $(document).ready(function() {
   controller = new Controller("#viewport", "#log_container", "#display", "#greet_button");
-  controller.load_clients();
-  controller.load_connections();
 });

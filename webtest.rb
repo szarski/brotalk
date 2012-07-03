@@ -29,7 +29,7 @@ class Simulator
   end
 
   def remove(address)
-    Communicator::Virtual.listeners.delete address
+    listeners[address].listeners.first.client.kill!
   end
 
   def messages

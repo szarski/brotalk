@@ -49,7 +49,6 @@ class Client
   def update_bros(bros_table_update, sender_address)
     #old_bros_table = @bros_table
     new_bros_table = (@bros_table + bros_table_update)
-    @bros_table = new_bros_table
     #update_last_activity!(sender_address)
     new_bros_table.each do |b|
       new_bros_table = new_bros_table.delete_if {|b2| b2 == b and b.last_activity > b2.last_activity}

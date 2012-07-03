@@ -9,10 +9,12 @@ class Simulator
     Client.instance_variable_set("@zombie_kill_limit", 60)
     @logs = []
     Communicator::Virtual.register_logger(self)
-    20.times do
-      c = Client.new(false)
-      c.start_listening
-      sleep((rand * 6).round)
+    Thread.new do
+      20.times do
+        c = Client.new(false)
+        c.start_listening
+        sleep((rand * 6).round)
+      end
     end
   end
 
